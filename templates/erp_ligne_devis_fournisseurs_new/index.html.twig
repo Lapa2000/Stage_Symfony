@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpLigneDevisFournisseursNew index{% endblock %}
+
+{% block body %}
+    <h1>ErpLigneDevisFournisseursNew index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Reference</th>
+                <th>Produit</th>
+                <th>Quantite</th>
+                <th>Remise</th>
+                <th>Tva</th>
+                <th>Soustotalht</th>
+                <th>Soustotalttc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_ligne_devis_fournisseurs_new in erp_ligne_devis_fournisseurs_news %}
+            <tr>
+                <td>{{ erp_ligne_devis_fournisseurs_new.id }}</td>
+                <td>{{ erp_ligne_devis_fournisseurs_new.code }}</td>
+                <td>{{ erp_ligne_devis_fournisseurs_new.codedevis }}</td>
+                <td>{{ erp_ligne_devis_fournisseurs_new.reference }}</td>
+                <td>{{ erp_ligne_devis_fournisseurs_new.produit }}</td>
+                <td>{{ erp_ligne_devis_fournisseurs_new.quantite }}</td>
+                <td>{{ erp_ligne_devis_fournisseurs_new.remise }}</td>
+                <td>{{ erp_ligne_devis_fournisseurs_new.tva }}</td>
+                <td>{{ erp_ligne_devis_fournisseurs_new.soustotalht }}</td>
+                <td>{{ erp_ligne_devis_fournisseurs_new.soustotalttc }}</td>
+                <td>
+                    <a href="{{ path('app_erp_ligne_devis_fournisseurs_new_show', {'id': erp_ligne_devis_fournisseurs_new.id}) }}">show</a>
+                    <a href="{{ path('app_erp_ligne_devis_fournisseurs_new_edit', {'id': erp_ligne_devis_fournisseurs_new.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_ligne_devis_fournisseurs_new_new') }}">Create new</a>
+{% endblock %}

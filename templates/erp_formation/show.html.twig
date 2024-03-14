@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpFormation{% endblock %}
+
+{% block body %}
+    <h1>ErpFormation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_formation.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_formation.code }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ erp_formation.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ erp_formation.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ erp_formation.image }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_formation.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_formation.datecreation ? erp_formation.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_formation.datemodification ? erp_formation.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_formation_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_formation_edit', {'id': erp_formation.id}) }}">edit</a>
+
+    {{ include('erp_formation/_delete_form.html.twig') }}
+{% endblock %}

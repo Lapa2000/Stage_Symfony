@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CommandeFournisseurNew{% endblock %}
+
+{% block body %}
+    <h1>CommandeFournisseurNew</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commande_fournisseur_new.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ commande_fournisseur_new.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ commande_fournisseur_new.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Monlogo</th>
+                <td>{{ commande_fournisseur_new.monlogo }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ commande_fournisseur_new.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ commande_fournisseur_new.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ commande_fournisseur_new.montel }}</td>
+            </tr>
+            <tr>
+                <th>Nomclient</th>
+                <td>{{ commande_fournisseur_new.nomclient }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ commande_fournisseur_new.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telclient</th>
+                <td>{{ commande_fournisseur_new.telclient }}</td>
+            </tr>
+            <tr>
+                <th>Datedevis</th>
+                <td>{{ commande_fournisseur_new.datedevis }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ commande_fournisseur_new.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ commande_fournisseur_new.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ commande_fournisseur_new.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ commande_fournisseur_new.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ commande_fournisseur_new.datecreation ? commande_fournisseur_new.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ commande_fournisseur_new.datemodification ? commande_fournisseur_new.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commande_fournisseur_new_index') }}">back to list</a>
+
+    <a href="{{ path('app_commande_fournisseur_new_edit', {'id': commande_fournisseur_new.id}) }}">edit</a>
+
+    {{ include('commande_fournisseur_new/_delete_form.html.twig') }}
+{% endblock %}

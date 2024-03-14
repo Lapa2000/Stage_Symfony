@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpModeleVehicule{% endblock %}
+
+{% block body %}
+    <h1>ErpModeleVehicule</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_modele_vehicule.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_modele_vehicule.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ erp_modele_vehicule.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_modele_vehicule_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_modele_vehicule_edit', {'id': erp_modele_vehicule.id}) }}">edit</a>
+
+    {{ include('erp_modele_vehicule/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpContactCategorie index{% endblock %}
+
+{% block body %}
+    <h1>ErpContactCategorie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_contact_categorie in erp_contact_categories %}
+            <tr>
+                <td>{{ erp_contact_categorie.id }}</td>
+                <td>{{ erp_contact_categorie.code }}</td>
+                <td>{{ erp_contact_categorie.nom }}</td>
+                <td>{{ erp_contact_categorie.creepar }}</td>
+                <td>{{ erp_contact_categorie.datecreation ? erp_contact_categorie.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_contact_categorie.datemodification ? erp_contact_categorie.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_contact_categorie_show', {'id': erp_contact_categorie.id}) }}">show</a>
+                    <a href="{{ path('app_erp_contact_categorie_edit', {'id': erp_contact_categorie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_contact_categorie_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpMouvementStock{% endblock %}
+
+{% block body %}
+    <h1>ErpMouvementStock</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_mouvement_stock.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_mouvement_stock.code }}</td>
+            </tr>
+            <tr>
+                <th>Codeproduit</th>
+                <td>{{ erp_mouvement_stock.codeproduit }}</td>
+            </tr>
+            <tr>
+                <th>Ancienqte</th>
+                <td>{{ erp_mouvement_stock.ancienqte }}</td>
+            </tr>
+            <tr>
+                <th>Newquantitetonne</th>
+                <td>{{ erp_mouvement_stock.newquantitetonne }}</td>
+            </tr>
+            <tr>
+                <th>Newquantitequnto</th>
+                <td>{{ erp_mouvement_stock.newquantitequnto }}</td>
+            </tr>
+            <tr>
+                <th>Newquantitekilo</th>
+                <td>{{ erp_mouvement_stock.newquantitekilo }}</td>
+            </tr>
+            <tr>
+                <th>Newvalue</th>
+                <td>{{ erp_mouvement_stock.newvalue }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ erp_mouvement_stock.date }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ erp_mouvement_stock.type }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_mouvement_stock.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_mouvement_stock.datecreation }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_mouvement_stock.datemodification }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_mouvement_stock_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_mouvement_stock_edit', {'id': erp_mouvement_stock.id}) }}">edit</a>
+
+    {{ include('erp_mouvement_stock/_delete_form.html.twig') }}
+{% endblock %}

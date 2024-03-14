@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneFacturesFournisseurs{% endblock %}
+
+{% block body %}
+    <h1>LigneFacturesFournisseurs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ligne_factures_fournisseur.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ ligne_factures_fournisseur.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ ligne_factures_fournisseur.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ ligne_factures_fournisseur.produit }}</td>
+            </tr>
+            <tr>
+                <th>Prixunitaire</th>
+                <td>{{ ligne_factures_fournisseur.prixunitaire }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ ligne_factures_fournisseur.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prixtotal</th>
+                <td>{{ ligne_factures_fournisseur.prixtotal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ligne_factures_fournisseurs_index') }}">back to list</a>
+
+    <a href="{{ path('app_ligne_factures_fournisseurs_edit', {'id': ligne_factures_fournisseur.id}) }}">edit</a>
+
+    {{ include('ligne_factures_fournisseurs/_delete_form.html.twig') }}
+{% endblock %}

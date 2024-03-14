@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpEcritureComptable index{% endblock %}
+
+{% block body %}
+    <h1>ErpEcritureComptable index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Compte</th>
+                <th>Libelle</th>
+                <th>Montant</th>
+                <th>Idlibelle</th>
+                <th>Debit</th>
+                <th>Credit</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_ecriture_comptable in erp_ecriture_comptables %}
+            <tr>
+                <td>{{ erp_ecriture_comptable.id }}</td>
+                <td>{{ erp_ecriture_comptable.code }}</td>
+                <td>{{ erp_ecriture_comptable.compte }}</td>
+                <td>{{ erp_ecriture_comptable.libelle }}</td>
+                <td>{{ erp_ecriture_comptable.montant }}</td>
+                <td>{{ erp_ecriture_comptable.idlibelle }}</td>
+                <td>{{ erp_ecriture_comptable.debit }}</td>
+                <td>{{ erp_ecriture_comptable.credit }}</td>
+                <td>{{ erp_ecriture_comptable.creepar }}</td>
+                <td>{{ erp_ecriture_comptable.datecreation ? erp_ecriture_comptable.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_ecriture_comptable.datemodification ? erp_ecriture_comptable.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_ecriture_comptable_show', {'id': erp_ecriture_comptable.id}) }}">show</a>
+                    <a href="{{ path('app_erp_ecriture_comptable_edit', {'id': erp_ecriture_comptable.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_ecriture_comptable_new') }}">Create new</a>
+{% endblock %}

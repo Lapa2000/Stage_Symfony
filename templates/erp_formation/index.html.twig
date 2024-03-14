@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpFormation index{% endblock %}
+
+{% block body %}
+    <h1>ErpFormation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_formation in erp_formations %}
+            <tr>
+                <td>{{ erp_formation.id }}</td>
+                <td>{{ erp_formation.code }}</td>
+                <td>{{ erp_formation.titre }}</td>
+                <td>{{ erp_formation.description }}</td>
+                <td>{{ erp_formation.image }}</td>
+                <td>{{ erp_formation.creepar }}</td>
+                <td>{{ erp_formation.datecreation ? erp_formation.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_formation.datemodification ? erp_formation.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_formation_show', {'id': erp_formation.id}) }}">show</a>
+                    <a href="{{ path('app_erp_formation_edit', {'id': erp_formation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_formation_new') }}">Create new</a>
+{% endblock %}

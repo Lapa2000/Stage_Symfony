@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpContratVehicule index{% endblock %}
+
+{% block body %}
+    <h1>ErpContratVehicule index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Typecontrat</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Montant</th>
+                <th>Fichierjoint</th>
+                <th>Idvehicule</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_contrat_vehicule in erp_contrat_vehicules %}
+            <tr>
+                <td>{{ erp_contrat_vehicule.id }}</td>
+                <td>{{ erp_contrat_vehicule.code }}</td>
+                <td>{{ erp_contrat_vehicule.titre }}</td>
+                <td>{{ erp_contrat_vehicule.description }}</td>
+                <td>{{ erp_contrat_vehicule.typecontrat }}</td>
+                <td>{{ erp_contrat_vehicule.datedebut ? erp_contrat_vehicule.datedebut|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_contrat_vehicule.datefin ? erp_contrat_vehicule.datefin|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_contrat_vehicule.montant }}</td>
+                <td>{{ erp_contrat_vehicule.fichierjoint }}</td>
+                <td>{{ erp_contrat_vehicule.idvehicule }}</td>
+                <td>{{ erp_contrat_vehicule.creepar }}</td>
+                <td>{{ erp_contrat_vehicule.datecreation ? erp_contrat_vehicule.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_contrat_vehicule.datemodification ? erp_contrat_vehicule.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_contrat_vehicule_show', {'id': erp_contrat_vehicule.id}) }}">show</a>
+                    <a href="{{ path('app_erp_contrat_vehicule_edit', {'id': erp_contrat_vehicule.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_contrat_vehicule_new') }}">Create new</a>
+{% endblock %}

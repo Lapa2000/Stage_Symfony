@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FacturesFournisseurs index{% endblock %}
+
+{% block body %}
+    <h1>FacturesFournisseurs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Monlogo</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Nomclient</th>
+                <th>Adresse</th>
+                <th>Telclient</th>
+                <th>Datedevis</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Totalttc</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for factures_fournisseur in factures_fournisseurs %}
+            <tr>
+                <td>{{ factures_fournisseur.id }}</td>
+                <td>{{ factures_fournisseur.code }}</td>
+                <td>{{ factures_fournisseur.codedevis }}</td>
+                <td>{{ factures_fournisseur.monlogo }}</td>
+                <td>{{ factures_fournisseur.masociete }}</td>
+                <td>{{ factures_fournisseur.monadresse }}</td>
+                <td>{{ factures_fournisseur.montel }}</td>
+                <td>{{ factures_fournisseur.nomclient }}</td>
+                <td>{{ factures_fournisseur.adresse }}</td>
+                <td>{{ factures_fournisseur.telclient }}</td>
+                <td>{{ factures_fournisseur.datedevis ? factures_fournisseur.datedevis|date('Y-m-d') : '' }}</td>
+                <td>{{ factures_fournisseur.totalht }}</td>
+                <td>{{ factures_fournisseur.totaltva }}</td>
+                <td>{{ factures_fournisseur.totalttc }}</td>
+                <td>{{ factures_fournisseur.creepar }}</td>
+                <td>{{ factures_fournisseur.datecreation ? factures_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ factures_fournisseur.datemodification ? factures_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_factures_fournisseurs_show', {'id': factures_fournisseur.id}) }}">show</a>
+                    <a href="{{ path('app_factures_fournisseurs_edit', {'id': factures_fournisseur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_factures_fournisseurs_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpConsomationParc{% endblock %}
+
+{% block body %}
+    <h1>ErpConsomationParc</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_consomation_parc.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_consomation_parc.code }}</td>
+            </tr>
+            <tr>
+                <th>Codevehicule</th>
+                <td>{{ erp_consomation_parc.codevehicule }}</td>
+            </tr>
+            <tr>
+                <th>Nombrelitre</th>
+                <td>{{ erp_consomation_parc.nombrelitre }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ erp_consomation_parc.prix }}</td>
+            </tr>
+            <tr>
+                <th>Datesaisie</th>
+                <td>{{ erp_consomation_parc.datesaisie ? erp_consomation_parc.datesaisie|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_consomation_parc.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_consomation_parc.datecreation ? erp_consomation_parc.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_consomation_parc.datemodification ? erp_consomation_parc.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_consomation_parc_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_consomation_parc_edit', {'id': erp_consomation_parc.id}) }}">edit</a>
+
+    {{ include('erp_consomation_parc/_delete_form.html.twig') }}
+{% endblock %}

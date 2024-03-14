@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpAbsence{% endblock %}
+
+{% block body %}
+    <h1>ErpAbsence</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_absence.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_absence.code }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ erp_absence.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ erp_absence.description }}</td>
+            </tr>
+            <tr>
+                <th>Codeemployee</th>
+                <td>{{ erp_absence.codeemployee }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ erp_absence.datedebut }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ erp_absence.datefin }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ erp_absence.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ erp_absence.etat }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_absence.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_absence.datecreation ? erp_absence.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_absence.datemodification ? erp_absence.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_absence_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_absence_edit', {'id': erp_absence.id}) }}">edit</a>
+
+    {{ include('erp_absence/_delete_form.html.twig') }}
+{% endblock %}

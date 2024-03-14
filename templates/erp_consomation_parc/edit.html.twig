@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpConsomationParc{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpConsomationParc</h1>
+
+    {{ include('erp_consomation_parc/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_consomation_parc_index') }}">back to list</a>
+
+    {{ include('erp_consomation_parc/_delete_form.html.twig') }}
+{% endblock %}

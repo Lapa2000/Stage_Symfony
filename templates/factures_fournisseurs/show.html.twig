@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FacturesFournisseurs{% endblock %}
+
+{% block body %}
+    <h1>FacturesFournisseurs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ factures_fournisseur.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ factures_fournisseur.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ factures_fournisseur.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Monlogo</th>
+                <td>{{ factures_fournisseur.monlogo }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ factures_fournisseur.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ factures_fournisseur.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ factures_fournisseur.montel }}</td>
+            </tr>
+            <tr>
+                <th>Nomclient</th>
+                <td>{{ factures_fournisseur.nomclient }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ factures_fournisseur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telclient</th>
+                <td>{{ factures_fournisseur.telclient }}</td>
+            </tr>
+            <tr>
+                <th>Datedevis</th>
+                <td>{{ factures_fournisseur.datedevis ? factures_fournisseur.datedevis|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ factures_fournisseur.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ factures_fournisseur.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ factures_fournisseur.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ factures_fournisseur.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ factures_fournisseur.datecreation ? factures_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ factures_fournisseur.datemodification ? factures_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_factures_fournisseurs_index') }}">back to list</a>
+
+    <a href="{{ path('app_factures_fournisseurs_edit', {'id': factures_fournisseur.id}) }}">edit</a>
+
+    {{ include('factures_fournisseurs/_delete_form.html.twig') }}
+{% endblock %}

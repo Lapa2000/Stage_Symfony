@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneDevisClientsFromFactures{% endblock %}
+
+{% block body %}
+    <h1>LigneDevisClientsFromFactures</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ligne_devis_clients_from_facture.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ ligne_devis_clients_from_facture.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ ligne_devis_clients_from_facture.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ ligne_devis_clients_from_facture.reference }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ ligne_devis_clients_from_facture.produit }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ ligne_devis_clients_from_facture.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prixdeventeht</th>
+                <td>{{ ligne_devis_clients_from_facture.prixdeventeht }}</td>
+            </tr>
+            <tr>
+                <th>Remise</th>
+                <td>{{ ligne_devis_clients_from_facture.remise }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ ligne_devis_clients_from_facture.tva }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalht</th>
+                <td>{{ ligne_devis_clients_from_facture.soustotalht }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalttc</th>
+                <td>{{ ligne_devis_clients_from_facture.soustotalttc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ligne_devis_clients_from_factures_index') }}">back to list</a>
+
+    <a href="{{ path('app_ligne_devis_clients_from_factures_edit', {'id': ligne_devis_clients_from_facture.id}) }}">edit</a>
+
+    {{ include('ligne_devis_clients_from_factures/_delete_form.html.twig') }}
+{% endblock %}

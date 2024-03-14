@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneFactureFournisseurNewData index{% endblock %}
+
+{% block body %}
+    <h1>LigneFactureFournisseurNewData index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Reference</th>
+                <th>Produit</th>
+                <th>Quantite</th>
+                <th>Prixdeventeht</th>
+                <th>Remise</th>
+                <th>Tva</th>
+                <th>Soustotalht</th>
+                <th>Soustotalttc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligne_facture_fournisseur_new_datum in ligne_facture_fournisseur_new_datas %}
+            <tr>
+                <td>{{ ligne_facture_fournisseur_new_datum.id }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.code }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.codedevis }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.reference }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.produit }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.quantite }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.prixdeventeht }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.remise }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.tva }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.soustotalht }}</td>
+                <td>{{ ligne_facture_fournisseur_new_datum.soustotalttc }}</td>
+                <td>
+                    <a href="{{ path('app_ligne_facture_fournisseur_new_data_show', {'id': ligne_facture_fournisseur_new_datum.id}) }}">show</a>
+                    <a href="{{ path('app_ligne_facture_fournisseur_new_data_edit', {'id': ligne_facture_fournisseur_new_datum.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ligne_facture_fournisseur_new_data_new') }}">Create new</a>
+{% endblock %}

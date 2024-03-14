@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mouvement{% endblock %}
+
+{% block body %}
+    <h1>Mouvement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mouvement.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ mouvement.code }}</td>
+            </tr>
+            <tr>
+                <th>Codeproduit</th>
+                <td>{{ mouvement.codeproduit }}</td>
+            </tr>
+            <tr>
+                <th>Operation</th>
+                <td>{{ mouvement.operation }}</td>
+            </tr>
+            <tr>
+                <th>Ancienvaleur</th>
+                <td>{{ mouvement.ancienvaleur }}</td>
+            </tr>
+            <tr>
+                <th>Nouvellevaleur</th>
+                <td>{{ mouvement.nouvellevaleur }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ mouvement.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ mouvement.datecreation }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ mouvement.datemodification }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_mouvement_index') }}">back to list</a>
+
+    <a href="{{ path('app_mouvement_edit', {'id': mouvement.id}) }}">edit</a>
+
+    {{ include('mouvement/_delete_form.html.twig') }}
+{% endblock %}

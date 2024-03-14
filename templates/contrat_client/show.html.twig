@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContratClient{% endblock %}
+
+{% block body %}
+    <h1>ContratClient</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contrat_client.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ contrat_client.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contrat_client.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ contrat_client.description }}</td>
+            </tr>
+            <tr>
+                <th>Fichier</th>
+                <td>{{ contrat_client.fichier }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ contrat_client.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ contrat_client.datecreation ? contrat_client.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ contrat_client.datemodification ? contrat_client.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contrat_client_index') }}">back to list</a>
+
+    <a href="{{ path('app_contrat_client_edit', {'id': contrat_client.id}) }}">edit</a>
+
+    {{ include('contrat_client/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpFacturesClient index{% endblock %}
+
+{% block body %}
+    <h1>ErpFacturesClient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Monlogo</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Nomclient</th>
+                <th>Adresse</th>
+                <th>Telclient</th>
+                <th>Codedevis</th>
+                <th>Datedevis</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Totalttc</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_factures_client in erp_factures_clients %}
+            <tr>
+                <td>{{ erp_factures_client.id }}</td>
+                <td>{{ erp_factures_client.code }}</td>
+                <td>{{ erp_factures_client.monlogo }}</td>
+                <td>{{ erp_factures_client.masociete }}</td>
+                <td>{{ erp_factures_client.monadresse }}</td>
+                <td>{{ erp_factures_client.montel }}</td>
+                <td>{{ erp_factures_client.nomclient }}</td>
+                <td>{{ erp_factures_client.adresse }}</td>
+                <td>{{ erp_factures_client.telclient }}</td>
+                <td>{{ erp_factures_client.codedevis }}</td>
+                <td>{{ erp_factures_client.datedevis }}</td>
+                <td>{{ erp_factures_client.totalht }}</td>
+                <td>{{ erp_factures_client.totaltva }}</td>
+                <td>{{ erp_factures_client.totalttc }}</td>
+                <td>{{ erp_factures_client.creepar }}</td>
+                <td>{{ erp_factures_client.datecreation ? erp_factures_client.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_factures_client.datemodification ? erp_factures_client.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_factures_client_show', {'id': erp_factures_client.id}) }}">show</a>
+                    <a href="{{ path('app_erp_factures_client_edit', {'id': erp_factures_client.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_factures_client_new') }}">Create new</a>
+{% endblock %}

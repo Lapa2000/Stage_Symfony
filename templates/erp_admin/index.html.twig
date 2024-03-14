@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpAdmin index{% endblock %}
+
+{% block body %}
+    <h1>ErpAdmin index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Motdepasse</th>
+                <th>Image</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_admin in erp_admins %}
+            <tr>
+                <td>{{ erp_admin.id }}</td>
+                <td>{{ erp_admin.code }}</td>
+                <td>{{ erp_admin.nom }}</td>
+                <td>{{ erp_admin.prenom }}</td>
+                <td>{{ erp_admin.email }}</td>
+                <td>{{ erp_admin.motdepasse }}</td>
+                <td>{{ erp_admin.image }}</td>
+                <td>{{ erp_admin.creepar }}</td>
+                <td>{{ erp_admin.datecreation ? erp_admin.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_admin.datemodification ? erp_admin.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_admin_show', {'id': erp_admin.id}) }}">show</a>
+                    <a href="{{ path('app_erp_admin_edit', {'id': erp_admin.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_admin_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpMouvementStock{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpMouvementStock</h1>
+
+    {{ include('erp_mouvement_stock/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_mouvement_stock_index') }}">back to list</a>
+{% endblock %}

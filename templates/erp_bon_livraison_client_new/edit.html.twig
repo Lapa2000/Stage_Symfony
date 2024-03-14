@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpBonLivraisonClientNew{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpBonLivraisonClientNew</h1>
+
+    {{ include('erp_bon_livraison_client_new/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_bon_livraison_client_new_index') }}">back to list</a>
+
+    {{ include('erp_bon_livraison_client_new/_delete_form.html.twig') }}
+{% endblock %}

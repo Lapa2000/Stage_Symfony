@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpContactCategorie{% endblock %}
+
+{% block body %}
+    <h1>ErpContactCategorie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_contact_categorie.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_contact_categorie.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ erp_contact_categorie.nom }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_contact_categorie.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_contact_categorie.datecreation ? erp_contact_categorie.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_contact_categorie.datemodification ? erp_contact_categorie.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_contact_categorie_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_contact_categorie_edit', {'id': erp_contact_categorie.id}) }}">edit</a>
+
+    {{ include('erp_contact_categorie/_delete_form.html.twig') }}
+{% endblock %}

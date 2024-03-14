@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpLigneDevisFournisseursNew{% endblock %}
+
+{% block body %}
+    <h1>ErpLigneDevisFournisseursNew</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.reference }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.produit }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Remise</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.remise }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.tva }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalht</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.soustotalht }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalttc</th>
+                <td>{{ erp_ligne_devis_fournisseurs_new.soustotalttc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_ligne_devis_fournisseurs_new_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_ligne_devis_fournisseurs_new_edit', {'id': erp_ligne_devis_fournisseurs_new.id}) }}">edit</a>
+
+    {{ include('erp_ligne_devis_fournisseurs_new/_delete_form.html.twig') }}
+{% endblock %}

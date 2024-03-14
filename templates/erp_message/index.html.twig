@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpMessage index{% endblock %}
+
+{% block body %}
+    <h1>ErpMessage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Idenvoie</th>
+                <th>Idreception</th>
+                <th>Titre</th>
+                <th>Texte</th>
+                <th>Fichier</th>
+                <th>Etat</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_message in erp_messages %}
+            <tr>
+                <td>{{ erp_message.id }}</td>
+                <td>{{ erp_message.code }}</td>
+                <td>{{ erp_message.idenvoie }}</td>
+                <td>{{ erp_message.idreception }}</td>
+                <td>{{ erp_message.titre }}</td>
+                <td>{{ erp_message.texte }}</td>
+                <td>{{ erp_message.fichier }}</td>
+                <td>{{ erp_message.etat }}</td>
+                <td>{{ erp_message.datecreation ? erp_message.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_message.datemodification ? erp_message.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_message_show', {'id': erp_message.id}) }}">show</a>
+                    <a href="{{ path('app_erp_message_edit', {'id': erp_message.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_message_new') }}">Create new</a>
+{% endblock %}

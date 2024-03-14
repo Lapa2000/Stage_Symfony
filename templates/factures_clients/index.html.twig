@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FacturesClients index{% endblock %}
+
+{% block body %}
+    <h1>FacturesClients index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codefacture</th>
+                <th>Monlogo</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Nomclient</th>
+                <th>Adresse</th>
+                <th>Datedevis</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Totalttc</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for factures_client in factures_clients %}
+            <tr>
+                <td>{{ factures_client.id }}</td>
+                <td>{{ factures_client.code }}</td>
+                <td>{{ factures_client.codefacture }}</td>
+                <td>{{ factures_client.monlogo }}</td>
+                <td>{{ factures_client.masociete }}</td>
+                <td>{{ factures_client.monadresse }}</td>
+                <td>{{ factures_client.montel }}</td>
+                <td>{{ factures_client.nomclient }}</td>
+                <td>{{ factures_client.adresse }}</td>
+                <td>{{ factures_client.datedevis }}</td>
+                <td>{{ factures_client.totalht }}</td>
+                <td>{{ factures_client.totaltva }}</td>
+                <td>{{ factures_client.totalttc }}</td>
+                <td>{{ factures_client.creepar }}</td>
+                <td>{{ factures_client.datecreation ? factures_client.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ factures_client.datemodification ? factures_client.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_factures_clients_show', {'id': factures_client.id}) }}">show</a>
+                    <a href="{{ path('app_factures_clients_edit', {'id': factures_client.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_factures_clients_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpChauffeurs{% endblock %}
+
+{% block body %}
+    <h1>ErpChauffeurs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_chauffeur.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_chauffeur.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ erp_chauffeur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ erp_chauffeur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ erp_chauffeur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ erp_chauffeur.tel }}</td>
+            </tr>
+            <tr>
+                <th>Tel2</th>
+                <td>{{ erp_chauffeur.tel2 }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ erp_chauffeur.email }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ erp_chauffeur.image }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_chauffeur.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_chauffeur.datecreation ? erp_chauffeur.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_chauffeur.datemodification ? erp_chauffeur.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_chauffeurs_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_chauffeurs_edit', {'id': erp_chauffeur.id}) }}">edit</a>
+
+    {{ include('erp_chauffeurs/_delete_form.html.twig') }}
+{% endblock %}

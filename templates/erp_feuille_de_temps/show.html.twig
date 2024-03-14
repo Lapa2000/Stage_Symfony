@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpFeuilleDeTemps{% endblock %}
+
+{% block body %}
+    <h1>ErpFeuilleDeTemps</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_feuille_de_temp.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_feuille_de_temp.code }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ erp_feuille_de_temp.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ erp_feuille_de_temp.description }}</td>
+            </tr>
+            <tr>
+                <th>Codeemployee</th>
+                <td>{{ erp_feuille_de_temp.codeemployee }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ erp_feuille_de_temp.datedebut }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ erp_feuille_de_temp.datefin }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ erp_feuille_de_temp.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ erp_feuille_de_temp.etat }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_feuille_de_temp.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_feuille_de_temp.datecreation ? erp_feuille_de_temp.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_feuille_de_temp.datemodification }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_feuille_de_temps_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_feuille_de_temps_edit', {'id': erp_feuille_de_temp.id}) }}">edit</a>
+
+    {{ include('erp_feuille_de_temps/_delete_form.html.twig') }}
+{% endblock %}

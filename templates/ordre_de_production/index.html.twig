@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrdreDeProduction index{% endblock %}
+
+{% block body %}
+    <h1>OrdreDeProduction index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codeordre</th>
+                <th>Nom</th>
+                <th>Priorite</th>
+                <th>Client</th>
+                <th>Commandeclient</th>
+                <th>Etat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ordre_de_production in ordre_de_productions %}
+            <tr>
+                <td>{{ ordre_de_production.id }}</td>
+                <td>{{ ordre_de_production.code }}</td>
+                <td>{{ ordre_de_production.codeordre }}</td>
+                <td>{{ ordre_de_production.nom }}</td>
+                <td>{{ ordre_de_production.priorite }}</td>
+                <td>{{ ordre_de_production.client }}</td>
+                <td>{{ ordre_de_production.commandeclient }}</td>
+                <td>{{ ordre_de_production.etat }}</td>
+                <td>{{ ordre_de_production.creepar }}</td>
+                <td>{{ ordre_de_production.datecreation ? ordre_de_production.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ ordre_de_production.datemodification ? ordre_de_production.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_ordre_de_production_show', {'id': ordre_de_production.id}) }}">show</a>
+                    <a href="{{ path('app_ordre_de_production_edit', {'id': ordre_de_production.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ordre_de_production_new') }}">Create new</a>
+{% endblock %}

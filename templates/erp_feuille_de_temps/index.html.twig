@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpFeuilleDeTemps index{% endblock %}
+
+{% block body %}
+    <h1>ErpFeuilleDeTemps index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Codeemployee</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Categorie</th>
+                <th>Etat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_feuille_de_temp in erp_feuille_de_temps %}
+            <tr>
+                <td>{{ erp_feuille_de_temp.id }}</td>
+                <td>{{ erp_feuille_de_temp.code }}</td>
+                <td>{{ erp_feuille_de_temp.titre }}</td>
+                <td>{{ erp_feuille_de_temp.description }}</td>
+                <td>{{ erp_feuille_de_temp.codeemployee }}</td>
+                <td>{{ erp_feuille_de_temp.datedebut }}</td>
+                <td>{{ erp_feuille_de_temp.datefin }}</td>
+                <td>{{ erp_feuille_de_temp.categorie }}</td>
+                <td>{{ erp_feuille_de_temp.etat }}</td>
+                <td>{{ erp_feuille_de_temp.creepar }}</td>
+                <td>{{ erp_feuille_de_temp.datecreation ? erp_feuille_de_temp.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_feuille_de_temp.datemodification }}</td>
+                <td>
+                    <a href="{{ path('app_erp_feuille_de_temps_show', {'id': erp_feuille_de_temp.id}) }}">show</a>
+                    <a href="{{ path('app_erp_feuille_de_temps_edit', {'id': erp_feuille_de_temp.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_feuille_de_temps_new') }}">Create new</a>
+{% endblock %}

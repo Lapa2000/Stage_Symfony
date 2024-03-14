@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpEcritureComptable{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpEcritureComptable</h1>
+
+    {{ include('erp_ecriture_comptable/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_ecriture_comptable_index') }}">back to list</a>
+
+    {{ include('erp_ecriture_comptable/_delete_form.html.twig') }}
+{% endblock %}

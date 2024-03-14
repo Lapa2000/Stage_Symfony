@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpCatalogue index{% endblock %}
+
+{% block body %}
+    <h1>ErpCatalogue index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Fichier</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_catalogue in erp_catalogues %}
+            <tr>
+                <td>{{ erp_catalogue.id }}</td>
+                <td>{{ erp_catalogue.code }}</td>
+                <td>{{ erp_catalogue.nom }}</td>
+                <td>{{ erp_catalogue.description }}</td>
+                <td>{{ erp_catalogue.fichier }}</td>
+                <td>{{ erp_catalogue.creepar }}</td>
+                <td>{{ erp_catalogue.datecreation ? erp_catalogue.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_catalogue.datemodification ? erp_catalogue.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_catalogue_show', {'id': erp_catalogue.id}) }}">show</a>
+                    <a href="{{ path('app_erp_catalogue_edit', {'id': erp_catalogue.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_catalogue_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notedefrais{% endblock %}
+
+{% block body %}
+    <h1>Notedefrais</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ notedefrai.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ notedefrai.code }}</td>
+            </tr>
+            <tr>
+                <th>Codeemp</th>
+                <td>{{ notedefrai.codeemp }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ notedefrai.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ notedefrai.description }}</td>
+            </tr>
+            <tr>
+                <th>Fichier</th>
+                <td>{{ notedefrai.fichier }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ notedefrai.montant }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ notedefrai.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ notedefrai.datecreation ? notedefrai.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ notedefrai.datemodification ? notedefrai.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_notedefrais_index') }}">back to list</a>
+
+    <a href="{{ path('app_notedefrais_edit', {'id': notedefrai.id}) }}">edit</a>
+
+    {{ include('notedefrais/_delete_form.html.twig') }}
+{% endblock %}

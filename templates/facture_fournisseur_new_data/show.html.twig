@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FactureFournisseurNewData{% endblock %}
+
+{% block body %}
+    <h1>FactureFournisseurNewData</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ facture_fournisseur_new_datum.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ facture_fournisseur_new_datum.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ facture_fournisseur_new_datum.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ facture_fournisseur_new_datum.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ facture_fournisseur_new_datum.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ facture_fournisseur_new_datum.montel }}</td>
+            </tr>
+            <tr>
+                <th>Monfax</th>
+                <td>{{ facture_fournisseur_new_datum.monfax }}</td>
+            </tr>
+            <tr>
+                <th>Monregistre</th>
+                <td>{{ facture_fournisseur_new_datum.monregistre }}</td>
+            </tr>
+            <tr>
+                <th>Monmatricule</th>
+                <td>{{ facture_fournisseur_new_datum.monmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Clientcode</th>
+                <td>{{ facture_fournisseur_new_datum.clientcode }}</td>
+            </tr>
+            <tr>
+                <th>Clientraison</th>
+                <td>{{ facture_fournisseur_new_datum.clientraison }}</td>
+            </tr>
+            <tr>
+                <th>Clientnom</th>
+                <td>{{ facture_fournisseur_new_datum.clientnom }}</td>
+            </tr>
+            <tr>
+                <th>Clientprenom</th>
+                <td>{{ facture_fournisseur_new_datum.clientprenom }}</td>
+            </tr>
+            <tr>
+                <th>Clienttel</th>
+                <td>{{ facture_fournisseur_new_datum.clienttel }}</td>
+            </tr>
+            <tr>
+                <th>Clientfax</th>
+                <td>{{ facture_fournisseur_new_datum.clientfax }}</td>
+            </tr>
+            <tr>
+                <th>Clientadresse</th>
+                <td>{{ facture_fournisseur_new_datum.clientadresse }}</td>
+            </tr>
+            <tr>
+                <th>Clientmatricule</th>
+                <td>{{ facture_fournisseur_new_datum.clientmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ facture_fournisseur_new_datum.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ facture_fournisseur_new_datum.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Remises</th>
+                <td>{{ facture_fournisseur_new_datum.remises }}</td>
+            </tr>
+            <tr>
+                <th>Timbres</th>
+                <td>{{ facture_fournisseur_new_datum.timbres }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ facture_fournisseur_new_datum.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurnom</th>
+                <td>{{ facture_fournisseur_new_datum.chauffeurnom }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurvehicule</th>
+                <td>{{ facture_fournisseur_new_datum.chauffeurvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Creationcode</th>
+                <td>{{ facture_fournisseur_new_datum.creationcode }}</td>
+            </tr>
+            <tr>
+                <th>Creationnom</th>
+                <td>{{ facture_fournisseur_new_datum.creationnom }}</td>
+            </tr>
+            <tr>
+                <th>Creationprenom</th>
+                <td>{{ facture_fournisseur_new_datum.creationprenom }}</td>
+            </tr>
+            <tr>
+                <th>Creationdate</th>
+                <td>{{ facture_fournisseur_new_datum.creationdate }}</td>
+            </tr>
+            <tr>
+                <th>Creationheure</th>
+                <td>{{ facture_fournisseur_new_datum.creationheure }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_facture_fournisseur_new_data_index') }}">back to list</a>
+
+    <a href="{{ path('app_facture_fournisseur_new_data_edit', {'id': facture_fournisseur_new_datum.id}) }}">edit</a>
+
+    {{ include('facture_fournisseur_new_data/_delete_form.html.twig') }}
+{% endblock %}

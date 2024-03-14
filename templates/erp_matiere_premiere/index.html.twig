@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpMatierePremiere index{% endblock %}
+
+{% block body %}
+    <h1>ErpMatierePremiere index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codeproduit</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Categorie</th>
+                <th>Methodeapprovisionement</th>
+                <th>Puvht</th>
+                <th>Tva</th>
+                <th>Puvttc</th>
+                <th>Remisemax</th>
+                <th>Unitestock</th>
+                <th>Fournisseur</th>
+                <th>Dateachat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_matiere_premiere in erp_matiere_premieres %}
+            <tr>
+                <td>{{ erp_matiere_premiere.id }}</td>
+                <td>{{ erp_matiere_premiere.code }}</td>
+                <td>{{ erp_matiere_premiere.codeproduit }}</td>
+                <td>{{ erp_matiere_premiere.image }}</td>
+                <td>{{ erp_matiere_premiere.nom }}</td>
+                <td>{{ erp_matiere_premiere.description }}</td>
+                <td>{{ erp_matiere_premiere.type }}</td>
+                <td>{{ erp_matiere_premiere.categorie }}</td>
+                <td>{{ erp_matiere_premiere.methodeapprovisionement }}</td>
+                <td>{{ erp_matiere_premiere.puvht }}</td>
+                <td>{{ erp_matiere_premiere.tva }}</td>
+                <td>{{ erp_matiere_premiere.puvttc }}</td>
+                <td>{{ erp_matiere_premiere.remisemax }}</td>
+                <td>{{ erp_matiere_premiere.unitestock }}</td>
+                <td>{{ erp_matiere_premiere.fournisseur }}</td>
+                <td>{{ erp_matiere_premiere.dateachat ? erp_matiere_premiere.dateachat|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_matiere_premiere.creepar }}</td>
+                <td>{{ erp_matiere_premiere.datecreation ? erp_matiere_premiere.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_matiere_premiere.datemodification ? erp_matiere_premiere.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_matiere_premiere_show', {'id': erp_matiere_premiere.id}) }}">show</a>
+                    <a href="{{ path('app_erp_matiere_premiere_edit', {'id': erp_matiere_premiere.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="20">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_matiere_premiere_new') }}">Create new</a>
+{% endblock %}

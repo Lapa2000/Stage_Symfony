@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpAbsence index{% endblock %}
+
+{% block body %}
+    <h1>ErpAbsence index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Codeemployee</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Categorie</th>
+                <th>Etat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_absence in erp_absences %}
+            <tr>
+                <td>{{ erp_absence.id }}</td>
+                <td>{{ erp_absence.code }}</td>
+                <td>{{ erp_absence.titre }}</td>
+                <td>{{ erp_absence.description }}</td>
+                <td>{{ erp_absence.codeemployee }}</td>
+                <td>{{ erp_absence.datedebut }}</td>
+                <td>{{ erp_absence.datefin }}</td>
+                <td>{{ erp_absence.categorie }}</td>
+                <td>{{ erp_absence.etat }}</td>
+                <td>{{ erp_absence.creepar }}</td>
+                <td>{{ erp_absence.datecreation ? erp_absence.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_absence.datemodification ? erp_absence.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_absence_show', {'id': erp_absence.id}) }}">show</a>
+                    <a href="{{ path('app_erp_absence_edit', {'id': erp_absence.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_absence_new') }}">Create new</a>
+{% endblock %}

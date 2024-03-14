@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpProjet index{% endblock %}
+
+{% block body %}
+    <h1>ErpProjet index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Fichier</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_projet in erp_projets %}
+            <tr>
+                <td>{{ erp_projet.id }}</td>
+                <td>{{ erp_projet.code }}</td>
+                <td>{{ erp_projet.nom }}</td>
+                <td>{{ erp_projet.description }}</td>
+                <td>{{ erp_projet.datedebut ? erp_projet.datedebut|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_projet.datefin ? erp_projet.datefin|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_projet.fichier }}</td>
+                <td>{{ erp_projet.creepar }}</td>
+                <td>{{ erp_projet.datecreation ? erp_projet.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_projet.datemodification ? erp_projet.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_projet_show', {'id': erp_projet.id}) }}">show</a>
+                    <a href="{{ path('app_erp_projet_edit', {'id': erp_projet.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_projet_new') }}">Create new</a>
+{% endblock %}

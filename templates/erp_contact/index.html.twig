@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpContact index{% endblock %}
+
+{% block body %}
+    <h1>ErpContact index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nomsociete</th>
+                <th>Categorie</th>
+                <th>Adresseadminstratif</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Tel2</th>
+                <th>Fax</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Image</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_contact in erp_contacts %}
+            <tr>
+                <td>{{ erp_contact.id }}</td>
+                <td>{{ erp_contact.code }}</td>
+                <td>{{ erp_contact.nomsociete }}</td>
+                <td>{{ erp_contact.categorie }}</td>
+                <td>{{ erp_contact.adresseadminstratif }}</td>
+                <td>{{ erp_contact.nom }}</td>
+                <td>{{ erp_contact.prenom }}</td>
+                <td>{{ erp_contact.adresse }}</td>
+                <td>{{ erp_contact.tel }}</td>
+                <td>{{ erp_contact.tel2 }}</td>
+                <td>{{ erp_contact.fax }}</td>
+                <td>{{ erp_contact.email }}</td>
+                <td>{{ erp_contact.website }}</td>
+                <td>{{ erp_contact.image }}</td>
+                <td>{{ erp_contact.creepar }}</td>
+                <td>{{ erp_contact.datecreation ? erp_contact.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_contact.datemodification ? erp_contact.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_contact_show', {'id': erp_contact.id}) }}">show</a>
+                    <a href="{{ path('app_erp_contact_edit', {'id': erp_contact.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_contact_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devis index{% endblock %}
+
+{% block body %}
+    <h1>Devis index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Monfax</th>
+                <th>Monregistre</th>
+                <th>Monmatricule</th>
+                <th>Clientcode</th>
+                <th>Clientraison</th>
+                <th>Clientnom</th>
+                <th>Clientprenom</th>
+                <th>Clientfax</th>
+                <th>Clientadresse</th>
+                <th>Clientmatricule</th>
+                <th>Totalht</th>
+                <th>Tva</th>
+                <th>Totaltva</th>
+                <th>Remises</th>
+                <th>Timbres</th>
+                <th>Totalttc</th>
+                <th>Chauffeurnom</th>
+                <th>Chauffeurvehicule</th>
+                <th>Creationcode</th>
+                <th>Creationnom</th>
+                <th>Creationprenom</th>
+                <th>Creationdate</th>
+                <th>Creationheure</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for devi in devis %}
+            <tr>
+                <td>{{ devi.id }}</td>
+                <td>{{ devi.code }}</td>
+                <td>{{ devi.codedevis }}</td>
+                <td>{{ devi.masociete }}</td>
+                <td>{{ devi.monadresse }}</td>
+                <td>{{ devi.montel }}</td>
+                <td>{{ devi.monfax }}</td>
+                <td>{{ devi.monregistre }}</td>
+                <td>{{ devi.monmatricule }}</td>
+                <td>{{ devi.clientcode }}</td>
+                <td>{{ devi.clientraison }}</td>
+                <td>{{ devi.clientnom }}</td>
+                <td>{{ devi.clientprenom }}</td>
+                <td>{{ devi.clientfax }}</td>
+                <td>{{ devi.clientadresse }}</td>
+                <td>{{ devi.clientmatricule }}</td>
+                <td>{{ devi.totalht }}</td>
+                <td>{{ devi.tva }}</td>
+                <td>{{ devi.totaltva }}</td>
+                <td>{{ devi.remises }}</td>
+                <td>{{ devi.timbres }}</td>
+                <td>{{ devi.totalttc }}</td>
+                <td>{{ devi.chauffeurnom }}</td>
+                <td>{{ devi.chauffeurvehicule }}</td>
+                <td>{{ devi.creationcode }}</td>
+                <td>{{ devi.creationnom }}</td>
+                <td>{{ devi.creationprenom }}</td>
+                <td>{{ devi.creationdate }}</td>
+                <td>{{ devi.creationheure }}</td>
+                <td>
+                    <a href="{{ path('app_devis_show', {'id': devi.id}) }}">show</a>
+                    <a href="{{ path('app_devis_edit', {'id': devi.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="30">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_devis_new') }}">Create new</a>
+{% endblock %}

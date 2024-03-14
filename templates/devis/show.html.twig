@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devis{% endblock %}
+
+{% block body %}
+    <h1>Devis</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ devi.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ devi.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ devi.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ devi.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ devi.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ devi.montel }}</td>
+            </tr>
+            <tr>
+                <th>Monfax</th>
+                <td>{{ devi.monfax }}</td>
+            </tr>
+            <tr>
+                <th>Monregistre</th>
+                <td>{{ devi.monregistre }}</td>
+            </tr>
+            <tr>
+                <th>Monmatricule</th>
+                <td>{{ devi.monmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Clientcode</th>
+                <td>{{ devi.clientcode }}</td>
+            </tr>
+            <tr>
+                <th>Clientraison</th>
+                <td>{{ devi.clientraison }}</td>
+            </tr>
+            <tr>
+                <th>Clientnom</th>
+                <td>{{ devi.clientnom }}</td>
+            </tr>
+            <tr>
+                <th>Clientprenom</th>
+                <td>{{ devi.clientprenom }}</td>
+            </tr>
+            <tr>
+                <th>Clientfax</th>
+                <td>{{ devi.clientfax }}</td>
+            </tr>
+            <tr>
+                <th>Clientadresse</th>
+                <td>{{ devi.clientadresse }}</td>
+            </tr>
+            <tr>
+                <th>Clientmatricule</th>
+                <td>{{ devi.clientmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ devi.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ devi.tva }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ devi.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Remises</th>
+                <td>{{ devi.remises }}</td>
+            </tr>
+            <tr>
+                <th>Timbres</th>
+                <td>{{ devi.timbres }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ devi.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurnom</th>
+                <td>{{ devi.chauffeurnom }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurvehicule</th>
+                <td>{{ devi.chauffeurvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Creationcode</th>
+                <td>{{ devi.creationcode }}</td>
+            </tr>
+            <tr>
+                <th>Creationnom</th>
+                <td>{{ devi.creationnom }}</td>
+            </tr>
+            <tr>
+                <th>Creationprenom</th>
+                <td>{{ devi.creationprenom }}</td>
+            </tr>
+            <tr>
+                <th>Creationdate</th>
+                <td>{{ devi.creationdate }}</td>
+            </tr>
+            <tr>
+                <th>Creationheure</th>
+                <td>{{ devi.creationheure }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_devis_index') }}">back to list</a>
+
+    <a href="{{ path('app_devis_edit', {'id': devi.id}) }}">edit</a>
+
+    {{ include('devis/_delete_form.html.twig') }}
+{% endblock %}

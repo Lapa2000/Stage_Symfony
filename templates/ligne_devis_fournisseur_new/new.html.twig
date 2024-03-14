@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LigneDevisFournisseurNew{% endblock %}
+
+{% block body %}
+    <h1>Create new LigneDevisFournisseurNew</h1>
+
+    {{ include('ligne_devis_fournisseur_new/_form.html.twig') }}
+
+    <a href="{{ path('app_ligne_devis_fournisseur_new_index') }}">back to list</a>
+{% endblock %}

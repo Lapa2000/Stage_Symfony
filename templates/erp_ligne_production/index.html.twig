@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpLigneProduction index{% endblock %}
+
+{% block body %}
+    <h1>ErpLigneProduction index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codeligne</th>
+                <th>Refproduit</th>
+                <th>Ancienqte</th>
+                <th>Newqte</th>
+                <th>Sortie</th>
+                <th>Restant</th>
+                <th>Dateligne</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_ligne_production in erp_ligne_productions %}
+            <tr>
+                <td>{{ erp_ligne_production.id }}</td>
+                <td>{{ erp_ligne_production.code }}</td>
+                <td>{{ erp_ligne_production.codeligne }}</td>
+                <td>{{ erp_ligne_production.refproduit }}</td>
+                <td>{{ erp_ligne_production.ancienqte }}</td>
+                <td>{{ erp_ligne_production.newqte }}</td>
+                <td>{{ erp_ligne_production.sortie }}</td>
+                <td>{{ erp_ligne_production.restant }}</td>
+                <td>{{ erp_ligne_production.dateligne }}</td>
+                <td>
+                    <a href="{{ path('app_erp_ligne_production_show', {'id': erp_ligne_production.id}) }}">show</a>
+                    <a href="{{ path('app_erp_ligne_production_edit', {'id': erp_ligne_production.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_ligne_production_new') }}">Create new</a>
+{% endblock %}

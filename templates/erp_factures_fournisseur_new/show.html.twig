@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpFacturesFournisseurNew{% endblock %}
+
+{% block body %}
+    <h1>ErpFacturesFournisseurNew</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_factures_fournisseur_new.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_factures_fournisseur_new.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ erp_factures_fournisseur_new.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ erp_factures_fournisseur_new.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ erp_factures_fournisseur_new.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ erp_factures_fournisseur_new.montel }}</td>
+            </tr>
+            <tr>
+                <th>Monfax</th>
+                <td>{{ erp_factures_fournisseur_new.monfax }}</td>
+            </tr>
+            <tr>
+                <th>Monregistre</th>
+                <td>{{ erp_factures_fournisseur_new.monregistre }}</td>
+            </tr>
+            <tr>
+                <th>Monmatricule</th>
+                <td>{{ erp_factures_fournisseur_new.monmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Clientcode</th>
+                <td>{{ erp_factures_fournisseur_new.clientcode }}</td>
+            </tr>
+            <tr>
+                <th>Clientraison</th>
+                <td>{{ erp_factures_fournisseur_new.clientraison }}</td>
+            </tr>
+            <tr>
+                <th>Clientnom</th>
+                <td>{{ erp_factures_fournisseur_new.clientnom }}</td>
+            </tr>
+            <tr>
+                <th>Clientprenom</th>
+                <td>{{ erp_factures_fournisseur_new.clientprenom }}</td>
+            </tr>
+            <tr>
+                <th>Clienttel</th>
+                <td>{{ erp_factures_fournisseur_new.clienttel }}</td>
+            </tr>
+            <tr>
+                <th>Clientfax</th>
+                <td>{{ erp_factures_fournisseur_new.clientfax }}</td>
+            </tr>
+            <tr>
+                <th>Clientadresse</th>
+                <td>{{ erp_factures_fournisseur_new.clientadresse }}</td>
+            </tr>
+            <tr>
+                <th>Clientmatricule</th>
+                <td>{{ erp_factures_fournisseur_new.clientmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ erp_factures_fournisseur_new.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ erp_factures_fournisseur_new.tva }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ erp_factures_fournisseur_new.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Remises</th>
+                <td>{{ erp_factures_fournisseur_new.remises }}</td>
+            </tr>
+            <tr>
+                <th>Timbres</th>
+                <td>{{ erp_factures_fournisseur_new.timbres }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ erp_factures_fournisseur_new.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurnom</th>
+                <td>{{ erp_factures_fournisseur_new.chauffeurnom }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurvehicule</th>
+                <td>{{ erp_factures_fournisseur_new.chauffeurvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Creationcode</th>
+                <td>{{ erp_factures_fournisseur_new.creationcode }}</td>
+            </tr>
+            <tr>
+                <th>Creationnom</th>
+                <td>{{ erp_factures_fournisseur_new.creationnom }}</td>
+            </tr>
+            <tr>
+                <th>Creationprenom</th>
+                <td>{{ erp_factures_fournisseur_new.creationprenom }}</td>
+            </tr>
+            <tr>
+                <th>Creationdate</th>
+                <td>{{ erp_factures_fournisseur_new.creationdate }}</td>
+            </tr>
+            <tr>
+                <th>Creationheure</th>
+                <td>{{ erp_factures_fournisseur_new.creationheure }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_factures_fournisseur_new_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_factures_fournisseur_new_edit', {'id': erp_factures_fournisseur_new.id}) }}">edit</a>
+
+    {{ include('erp_factures_fournisseur_new/_delete_form.html.twig') }}
+{% endblock %}

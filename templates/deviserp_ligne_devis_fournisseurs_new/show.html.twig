@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DeviserpLigneDevisFournisseursNew{% endblock %}
+
+{% block body %}
+    <h1>DeviserpLigneDevisFournisseursNew</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.montel }}</td>
+            </tr>
+            <tr>
+                <th>Monfax</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.monfax }}</td>
+            </tr>
+            <tr>
+                <th>Monregistre</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.monregistre }}</td>
+            </tr>
+            <tr>
+                <th>Monmatricule</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.monmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Clientcode</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.clientcode }}</td>
+            </tr>
+            <tr>
+                <th>Clientraison</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.clientraison }}</td>
+            </tr>
+            <tr>
+                <th>Clientnom</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.clientnom }}</td>
+            </tr>
+            <tr>
+                <th>Clientprenom</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.clientprenom }}</td>
+            </tr>
+            <tr>
+                <th>Clienttel</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.clienttel }}</td>
+            </tr>
+            <tr>
+                <th>Clientfax</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.clientfax }}</td>
+            </tr>
+            <tr>
+                <th>Clientadresse</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.clientadresse }}</td>
+            </tr>
+            <tr>
+                <th>Clientmatricule</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.clientmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Remises</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.remises }}</td>
+            </tr>
+            <tr>
+                <th>Timbres</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.timbres }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurnom</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.chauffeurnom }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurvehicule</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.chauffeurvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Creationcode</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.creationcode }}</td>
+            </tr>
+            <tr>
+                <th>Creationnom</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.creationnom }}</td>
+            </tr>
+            <tr>
+                <th>Creationprenom</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.creationprenom }}</td>
+            </tr>
+            <tr>
+                <th>Creationdate</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.creationdate }}</td>
+            </tr>
+            <tr>
+                <th>Creationheure</th>
+                <td>{{ deviserp_ligne_devis_fournisseurs_new.creationheure }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_deviserp_ligne_devis_fournisseurs_new_index') }}">back to list</a>
+
+    <a href="{{ path('app_deviserp_ligne_devis_fournisseurs_new_edit', {'id': deviserp_ligne_devis_fournisseurs_new.id}) }}">edit</a>
+
+    {{ include('deviserp_ligne_devis_fournisseurs_new/_delete_form.html.twig') }}
+{% endblock %}

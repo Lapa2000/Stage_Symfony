@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpReleveBancaire index{% endblock %}
+
+{% block body %}
+    <h1>ErpReleveBancaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Solde</th>
+                <th>Datesolde</th>
+                <th>Fichierreleve</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_releve_bancaire in erp_releve_bancaires %}
+            <tr>
+                <td>{{ erp_releve_bancaire.id }}</td>
+                <td>{{ erp_releve_bancaire.code }}</td>
+                <td>{{ erp_releve_bancaire.solde }}</td>
+                <td>{{ erp_releve_bancaire.datesolde }}</td>
+                <td>{{ erp_releve_bancaire.fichierreleve }}</td>
+                <td>{{ erp_releve_bancaire.creepar }}</td>
+                <td>{{ erp_releve_bancaire.datecreation ? erp_releve_bancaire.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_releve_bancaire.datemodification ? erp_releve_bancaire.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_releve_bancaire_show', {'id': erp_releve_bancaire.id}) }}">show</a>
+                    <a href="{{ path('app_erp_releve_bancaire_edit', {'id': erp_releve_bancaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_releve_bancaire_new') }}">Create new</a>
+{% endblock %}

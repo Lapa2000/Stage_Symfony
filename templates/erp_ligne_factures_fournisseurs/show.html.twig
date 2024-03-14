@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpLigneFacturesFournisseurs{% endblock %}
+
+{% block body %}
+    <h1>ErpLigneFacturesFournisseurs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_ligne_factures_fournisseur.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_ligne_factures_fournisseur.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ erp_ligne_factures_fournisseur.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ erp_ligne_factures_fournisseur.reference }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ erp_ligne_factures_fournisseur.produit }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ erp_ligne_factures_fournisseur.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prixdeventeht</th>
+                <td>{{ erp_ligne_factures_fournisseur.prixdeventeht }}</td>
+            </tr>
+            <tr>
+                <th>Remise</th>
+                <td>{{ erp_ligne_factures_fournisseur.remise }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ erp_ligne_factures_fournisseur.tva }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalht</th>
+                <td>{{ erp_ligne_factures_fournisseur.soustotalht }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalttc</th>
+                <td>{{ erp_ligne_factures_fournisseur.soustotalttc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_ligne_factures_fournisseurs_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_ligne_factures_fournisseurs_edit', {'id': erp_ligne_factures_fournisseur.id}) }}">edit</a>
+
+    {{ include('erp_ligne_factures_fournisseurs/_delete_form.html.twig') }}
+{% endblock %}

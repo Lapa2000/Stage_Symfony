@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpCommandeClient{% endblock %}
+
+{% block body %}
+    <h1>ErpCommandeClient</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_commande_client.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_commande_client.code }}</td>
+            </tr>
+            <tr>
+                <th>Monlogo</th>
+                <td>{{ erp_commande_client.monlogo }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ erp_commande_client.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ erp_commande_client.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ erp_commande_client.montel }}</td>
+            </tr>
+            <tr>
+                <th>Nomclient</th>
+                <td>{{ erp_commande_client.nomclient }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ erp_commande_client.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telclient</th>
+                <td>{{ erp_commande_client.telclient }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ erp_commande_client.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Datedevis</th>
+                <td>{{ erp_commande_client.datedevis }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ erp_commande_client.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ erp_commande_client.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ erp_commande_client.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_commande_client.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_commande_client.datecreation ? erp_commande_client.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_commande_client.datemodification ? erp_commande_client.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_commande_client_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_commande_client_edit', {'id': erp_commande_client.id}) }}">edit</a>
+
+    {{ include('erp_commande_client/_delete_form.html.twig') }}
+{% endblock %}

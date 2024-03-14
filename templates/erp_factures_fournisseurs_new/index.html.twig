@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpFacturesFournisseursNew index{% endblock %}
+
+{% block body %}
+    <h1>ErpFacturesFournisseursNew index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Monfax</th>
+                <th>Monregistre</th>
+                <th>Monmatricule</th>
+                <th>Clientcode</th>
+                <th>Clientraison</th>
+                <th>Clientnom</th>
+                <th>Clientprenom</th>
+                <th>Clienttel</th>
+                <th>Clientfax</th>
+                <th>Clientadresse</th>
+                <th>Clientmatricule</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Remises</th>
+                <th>Timbres</th>
+                <th>Totalttc</th>
+                <th>Chauffeurnom</th>
+                <th>Chauffeurvehicule</th>
+                <th>Creationcode</th>
+                <th>Creationnom</th>
+                <th>Creationprenom</th>
+                <th>Creationdate</th>
+                <th>Creationheure</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_factures_fournisseurs_new in erp_factures_fournisseurs_news %}
+            <tr>
+                <td>{{ erp_factures_fournisseurs_new.id }}</td>
+                <td>{{ erp_factures_fournisseurs_new.code }}</td>
+                <td>{{ erp_factures_fournisseurs_new.codedevis }}</td>
+                <td>{{ erp_factures_fournisseurs_new.masociete }}</td>
+                <td>{{ erp_factures_fournisseurs_new.monadresse }}</td>
+                <td>{{ erp_factures_fournisseurs_new.montel }}</td>
+                <td>{{ erp_factures_fournisseurs_new.monfax }}</td>
+                <td>{{ erp_factures_fournisseurs_new.monregistre }}</td>
+                <td>{{ erp_factures_fournisseurs_new.monmatricule }}</td>
+                <td>{{ erp_factures_fournisseurs_new.clientcode }}</td>
+                <td>{{ erp_factures_fournisseurs_new.clientraison }}</td>
+                <td>{{ erp_factures_fournisseurs_new.clientnom }}</td>
+                <td>{{ erp_factures_fournisseurs_new.clientprenom }}</td>
+                <td>{{ erp_factures_fournisseurs_new.clienttel }}</td>
+                <td>{{ erp_factures_fournisseurs_new.clientfax }}</td>
+                <td>{{ erp_factures_fournisseurs_new.clientadresse }}</td>
+                <td>{{ erp_factures_fournisseurs_new.clientmatricule }}</td>
+                <td>{{ erp_factures_fournisseurs_new.totalht }}</td>
+                <td>{{ erp_factures_fournisseurs_new.totaltva }}</td>
+                <td>{{ erp_factures_fournisseurs_new.remises }}</td>
+                <td>{{ erp_factures_fournisseurs_new.timbres }}</td>
+                <td>{{ erp_factures_fournisseurs_new.totalttc }}</td>
+                <td>{{ erp_factures_fournisseurs_new.chauffeurnom }}</td>
+                <td>{{ erp_factures_fournisseurs_new.chauffeurvehicule }}</td>
+                <td>{{ erp_factures_fournisseurs_new.creationcode }}</td>
+                <td>{{ erp_factures_fournisseurs_new.creationnom }}</td>
+                <td>{{ erp_factures_fournisseurs_new.creationprenom }}</td>
+                <td>{{ erp_factures_fournisseurs_new.creationdate }}</td>
+                <td>{{ erp_factures_fournisseurs_new.creationheure }}</td>
+                <td>
+                    <a href="{{ path('app_erp_factures_fournisseurs_new_show', {'id': erp_factures_fournisseurs_new.id}) }}">show</a>
+                    <a href="{{ path('app_erp_factures_fournisseurs_new_edit', {'id': erp_factures_fournisseurs_new.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="30">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_factures_fournisseurs_new_new') }}">Create new</a>
+{% endblock %}

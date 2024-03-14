@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DevisFournisseurNew index{% endblock %}
+
+{% block body %}
+    <h1>DevisFournisseurNew index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Monfax</th>
+                <th>Monregistre</th>
+                <th>Monmatricule</th>
+                <th>Clientcode</th>
+                <th>Clientraison</th>
+                <th>Clientnom</th>
+                <th>Clientprenom</th>
+                <th>Clienttel</th>
+                <th>Clientfax</th>
+                <th>Clientadresse</th>
+                <th>Clientmatricule</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Remises</th>
+                <th>Timbres</th>
+                <th>Totalttc</th>
+                <th>Chauffeurnom</th>
+                <th>Chauffeurvehicule</th>
+                <th>Creationcode</th>
+                <th>Creationnom</th>
+                <th>Creationprenom</th>
+                <th>Creationdate</th>
+                <th>Creationheure</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for devis_fournisseur_new in devis_fournisseur_news %}
+            <tr>
+                <td>{{ devis_fournisseur_new.id }}</td>
+                <td>{{ devis_fournisseur_new.code }}</td>
+                <td>{{ devis_fournisseur_new.codedevis }}</td>
+                <td>{{ devis_fournisseur_new.masociete }}</td>
+                <td>{{ devis_fournisseur_new.monadresse }}</td>
+                <td>{{ devis_fournisseur_new.montel }}</td>
+                <td>{{ devis_fournisseur_new.monfax }}</td>
+                <td>{{ devis_fournisseur_new.monregistre }}</td>
+                <td>{{ devis_fournisseur_new.monmatricule }}</td>
+                <td>{{ devis_fournisseur_new.clientcode }}</td>
+                <td>{{ devis_fournisseur_new.clientraison }}</td>
+                <td>{{ devis_fournisseur_new.clientnom }}</td>
+                <td>{{ devis_fournisseur_new.clientprenom }}</td>
+                <td>{{ devis_fournisseur_new.clienttel }}</td>
+                <td>{{ devis_fournisseur_new.clientfax }}</td>
+                <td>{{ devis_fournisseur_new.clientadresse }}</td>
+                <td>{{ devis_fournisseur_new.clientmatricule }}</td>
+                <td>{{ devis_fournisseur_new.totalht }}</td>
+                <td>{{ devis_fournisseur_new.totaltva }}</td>
+                <td>{{ devis_fournisseur_new.remises }}</td>
+                <td>{{ devis_fournisseur_new.timbres }}</td>
+                <td>{{ devis_fournisseur_new.totalttc }}</td>
+                <td>{{ devis_fournisseur_new.chauffeurnom }}</td>
+                <td>{{ devis_fournisseur_new.chauffeurvehicule }}</td>
+                <td>{{ devis_fournisseur_new.creationcode }}</td>
+                <td>{{ devis_fournisseur_new.creationnom }}</td>
+                <td>{{ devis_fournisseur_new.creationprenom }}</td>
+                <td>{{ devis_fournisseur_new.creationdate }}</td>
+                <td>{{ devis_fournisseur_new.creationheure }}</td>
+                <td>
+                    <a href="{{ path('app_devis_fournisseur_new_show', {'id': devis_fournisseur_new.id}) }}">show</a>
+                    <a href="{{ path('app_devis_fournisseur_new_edit', {'id': devis_fournisseur_new.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="30">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_devis_fournisseur_new_new') }}">Create new</a>
+{% endblock %}

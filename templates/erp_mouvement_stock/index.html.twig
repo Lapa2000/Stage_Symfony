@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpMouvementStock index{% endblock %}
+
+{% block body %}
+    <h1>ErpMouvementStock index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codeproduit</th>
+                <th>Ancienqte</th>
+                <th>Newquantitetonne</th>
+                <th>Newquantitequnto</th>
+                <th>Newquantitekilo</th>
+                <th>Newvalue</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_mouvement_stock in erp_mouvement_stocks %}
+            <tr>
+                <td>{{ erp_mouvement_stock.id }}</td>
+                <td>{{ erp_mouvement_stock.code }}</td>
+                <td>{{ erp_mouvement_stock.codeproduit }}</td>
+                <td>{{ erp_mouvement_stock.ancienqte }}</td>
+                <td>{{ erp_mouvement_stock.newquantitetonne }}</td>
+                <td>{{ erp_mouvement_stock.newquantitequnto }}</td>
+                <td>{{ erp_mouvement_stock.newquantitekilo }}</td>
+                <td>{{ erp_mouvement_stock.newvalue }}</td>
+                <td>{{ erp_mouvement_stock.date }}</td>
+                <td>{{ erp_mouvement_stock.type }}</td>
+                <td>{{ erp_mouvement_stock.creepar }}</td>
+                <td>{{ erp_mouvement_stock.datecreation }}</td>
+                <td>{{ erp_mouvement_stock.datemodification }}</td>
+                <td>
+                    <a href="{{ path('app_erp_mouvement_stock_show', {'id': erp_mouvement_stock.id}) }}">show</a>
+                    <a href="{{ path('app_erp_mouvement_stock_edit', {'id': erp_mouvement_stock.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_mouvement_stock_new') }}">Create new</a>
+{% endblock %}

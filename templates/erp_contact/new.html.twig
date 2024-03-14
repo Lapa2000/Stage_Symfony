@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpContact{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpContact</h1>
+
+    {{ include('erp_contact/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_contact_index') }}">back to list</a>
+{% endblock %}

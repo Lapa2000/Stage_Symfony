@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpNoteDeFrais{% endblock %}
+
+{% block body %}
+    <h1>ErpNoteDeFrais</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_note_de_frai.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_note_de_frai.code }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ erp_note_de_frai.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ erp_note_de_frai.description }}</td>
+            </tr>
+            <tr>
+                <th>Codeemployee</th>
+                <td>{{ erp_note_de_frai.codeemployee }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ erp_note_de_frai.datedebut }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ erp_note_de_frai.datefin }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ erp_note_de_frai.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ erp_note_de_frai.etat }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_note_de_frai.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_note_de_frai.datecreation ? erp_note_de_frai.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_note_de_frai.datemodification ? erp_note_de_frai.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_note_de_frais_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_note_de_frais_edit', {'id': erp_note_de_frai.id}) }}">edit</a>
+
+    {{ include('erp_note_de_frais/_delete_form.html.twig') }}
+{% endblock %}

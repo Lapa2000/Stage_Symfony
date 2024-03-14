@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notedefrais index{% endblock %}
+
+{% block body %}
+    <h1>Notedefrais index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codeemp</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Fichier</th>
+                <th>Montant</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for notedefrai in notedefrais %}
+            <tr>
+                <td>{{ notedefrai.id }}</td>
+                <td>{{ notedefrai.code }}</td>
+                <td>{{ notedefrai.codeemp }}</td>
+                <td>{{ notedefrai.titre }}</td>
+                <td>{{ notedefrai.description }}</td>
+                <td>{{ notedefrai.fichier }}</td>
+                <td>{{ notedefrai.montant }}</td>
+                <td>{{ notedefrai.creepar }}</td>
+                <td>{{ notedefrai.datecreation ? notedefrai.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ notedefrai.datemodification ? notedefrai.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_notedefrais_show', {'id': notedefrai.id}) }}">show</a>
+                    <a href="{{ path('app_notedefrais_edit', {'id': notedefrai.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_notedefrais_new') }}">Create new</a>
+{% endblock %}

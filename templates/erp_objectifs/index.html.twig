@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpObjectifs index{% endblock %}
+
+{% block body %}
+    <h1>ErpObjectifs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Assignea</th>
+                <th>Equipe</th>
+                <th>Typeprogramme</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_objectif in erp_objectifs %}
+            <tr>
+                <td>{{ erp_objectif.id }}</td>
+                <td>{{ erp_objectif.code }}</td>
+                <td>{{ erp_objectif.nom }}</td>
+                <td>{{ erp_objectif.assignea }}</td>
+                <td>{{ erp_objectif.equipe }}</td>
+                <td>{{ erp_objectif.typeprogramme }}</td>
+                <td>{{ erp_objectif.datedebut ? erp_objectif.datedebut|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_objectif.datefin ? erp_objectif.datefin|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_objectif.creepar }}</td>
+                <td>{{ erp_objectif.datecreation ? erp_objectif.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_objectif.datemodification ? erp_objectif.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_objectifs_show', {'id': erp_objectif.id}) }}">show</a>
+                    <a href="{{ path('app_erp_objectifs_edit', {'id': erp_objectif.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_objectifs_new') }}">Create new</a>
+{% endblock %}

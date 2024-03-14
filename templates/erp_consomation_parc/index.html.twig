@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpConsomationParc index{% endblock %}
+
+{% block body %}
+    <h1>ErpConsomationParc index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codevehicule</th>
+                <th>Nombrelitre</th>
+                <th>Prix</th>
+                <th>Datesaisie</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_consomation_parc in erp_consomation_parcs %}
+            <tr>
+                <td>{{ erp_consomation_parc.id }}</td>
+                <td>{{ erp_consomation_parc.code }}</td>
+                <td>{{ erp_consomation_parc.codevehicule }}</td>
+                <td>{{ erp_consomation_parc.nombrelitre }}</td>
+                <td>{{ erp_consomation_parc.prix }}</td>
+                <td>{{ erp_consomation_parc.datesaisie ? erp_consomation_parc.datesaisie|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_consomation_parc.creepar }}</td>
+                <td>{{ erp_consomation_parc.datecreation ? erp_consomation_parc.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_consomation_parc.datemodification ? erp_consomation_parc.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_consomation_parc_show', {'id': erp_consomation_parc.id}) }}">show</a>
+                    <a href="{{ path('app_erp_consomation_parc_edit', {'id': erp_consomation_parc.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_consomation_parc_new') }}">Create new</a>
+{% endblock %}

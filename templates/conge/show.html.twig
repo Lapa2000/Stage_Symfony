@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conge{% endblock %}
+
+{% block body %}
+    <h1>Conge</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ conge.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ conge.code }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ conge.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ conge.description }}</td>
+            </tr>
+            <tr>
+                <th>Codeemployee</th>
+                <td>{{ conge.codeemployee }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ conge.datedebut }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ conge.datefin }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ conge.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ conge.etat }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ conge.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ conge.datecreation ? conge.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ conge.datemodification ? conge.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_conge_index') }}">back to list</a>
+
+    <a href="{{ path('app_conge_edit', {'id': conge.id}) }}">edit</a>
+
+    {{ include('conge/_delete_form.html.twig') }}
+{% endblock %}

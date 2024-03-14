@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpFournisseur index{% endblock %}
+
+{% block body %}
+    <h1>ErpFournisseur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codefournisseur</th>
+                <th>Raisonsocial</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Tel2</th>
+                <th>Fax</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Image</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_fournisseur in erp_fournisseurs %}
+            <tr>
+                <td>{{ erp_fournisseur.id }}</td>
+                <td>{{ erp_fournisseur.code }}</td>
+                <td>{{ erp_fournisseur.codefournisseur }}</td>
+                <td>{{ erp_fournisseur.raisonsocial }}</td>
+                <td>{{ erp_fournisseur.ville }}</td>
+                <td>{{ erp_fournisseur.pays }}</td>
+                <td>{{ erp_fournisseur.nom }}</td>
+                <td>{{ erp_fournisseur.prenom }}</td>
+                <td>{{ erp_fournisseur.adresse }}</td>
+                <td>{{ erp_fournisseur.tel }}</td>
+                <td>{{ erp_fournisseur.tel2 }}</td>
+                <td>{{ erp_fournisseur.fax }}</td>
+                <td>{{ erp_fournisseur.email }}</td>
+                <td>{{ erp_fournisseur.website }}</td>
+                <td>{{ erp_fournisseur.image }}</td>
+                <td>{{ erp_fournisseur.creepar }}</td>
+                <td>{{ erp_fournisseur.datecreation ? erp_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_fournisseur.datemodification ? erp_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_fournisseur_show', {'id': erp_fournisseur.id}) }}">show</a>
+                    <a href="{{ path('app_erp_fournisseur_edit', {'id': erp_fournisseur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_fournisseur_new') }}">Create new</a>
+{% endblock %}

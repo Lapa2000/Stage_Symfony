@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpTache{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpTache</h1>
+
+    {{ include('erp_tache/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_tache_index') }}">back to list</a>
+{% endblock %}

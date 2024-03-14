@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Notedefrais{% endblock %}
+
+{% block body %}
+    <h1>Create new Notedefrais</h1>
+
+    {{ include('notedefrais/_form.html.twig') }}
+
+    <a href="{{ path('app_notedefrais_index') }}">back to list</a>
+{% endblock %}

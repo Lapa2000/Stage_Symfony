@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LigneCommandeFournisseurNew{% endblock %}
+
+{% block body %}
+    <h1>Create new LigneCommandeFournisseurNew</h1>
+
+    {{ include('ligne_commande_fournisseur_new/_form.html.twig') }}
+
+    <a href="{{ path('app_ligne_commande_fournisseur_new_index') }}">back to list</a>
+{% endblock %}

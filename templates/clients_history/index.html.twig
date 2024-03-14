@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AvoirClientsHistory index{% endblock %}
+
+{% block body %}
+    <h1>AvoirClientsHistory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Modepaimement</th>
+                <th>Numerocompte</th>
+                <th>Codeclient</th>
+                <th>Codefacture</th>
+                <th>Montanttotalfacture</th>
+                <th>Montantsaisie</th>
+                <th>Ancienmontant</th>
+                <th>Payetawa</th>
+                <th>Restantmazal</th>
+                <th>Datemontant</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avoir_clients_history in avoir_clients_histories %}
+            <tr>
+                <td>{{ avoir_clients_history.id }}</td>
+                <td>{{ avoir_clients_history.code }}</td>
+                <td>{{ avoir_clients_history.modepaimement }}</td>
+                <td>{{ avoir_clients_history.numerocompte }}</td>
+                <td>{{ avoir_clients_history.codeclient }}</td>
+                <td>{{ avoir_clients_history.codefacture }}</td>
+                <td>{{ avoir_clients_history.montanttotalfacture }}</td>
+                <td>{{ avoir_clients_history.montantsaisie }}</td>
+                <td>{{ avoir_clients_history.ancienmontant }}</td>
+                <td>{{ avoir_clients_history.payetawa }}</td>
+                <td>{{ avoir_clients_history.restantmazal }}</td>
+                <td>{{ avoir_clients_history.datemontant }}</td>
+                <td>{{ avoir_clients_history.creepar }}</td>
+                <td>{{ avoir_clients_history.datecreation ? avoir_clients_history.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ avoir_clients_history.datemodification ? avoir_clients_history.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_clients_history_show', {'id': avoir_clients_history.id}) }}">show</a>
+                    <a href="{{ path('app_clients_history_edit', {'id': avoir_clients_history.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_clients_history_new') }}">Create new</a>
+{% endblock %}

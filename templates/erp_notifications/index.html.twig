@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpNotifications index{% endblock %}
+
+{% block body %}
+    <h1>ErpNotifications index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Texte</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_notification in erp_notifications %}
+            <tr>
+                <td>{{ erp_notification.id }}</td>
+                <td>{{ erp_notification.code }}</td>
+                <td>{{ erp_notification.texte }}</td>
+                <td>{{ erp_notification.creepar }}</td>
+                <td>{{ erp_notification.datecreation ? erp_notification.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_notification.datemodification ? erp_notification.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_notifications_show', {'id': erp_notification.id}) }}">show</a>
+                    <a href="{{ path('app_erp_notifications_edit', {'id': erp_notification.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_notifications_new') }}">Create new</a>
+{% endblock %}

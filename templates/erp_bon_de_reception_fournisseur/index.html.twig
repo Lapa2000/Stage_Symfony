@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpBonDeReceptionFournisseur index{% endblock %}
+
+{% block body %}
+    <h1>ErpBonDeReceptionFournisseur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Monfax</th>
+                <th>Monregistre</th>
+                <th>Monmatricule</th>
+                <th>Clientcode</th>
+                <th>Clientraison</th>
+                <th>Clientnom</th>
+                <th>Clientprenom</th>
+                <th>Clienttel</th>
+                <th>Clientfax</th>
+                <th>Clientadresse</th>
+                <th>Clientmatricule</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Remises</th>
+                <th>Timbres</th>
+                <th>Totalttc</th>
+                <th>Chauffeurnom</th>
+                <th>Chauffeurvehicule</th>
+                <th>Creationcode</th>
+                <th>Creationnom</th>
+                <th>Creationprenom</th>
+                <th>Creationdate</th>
+                <th>Creationheure</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_bon_de_reception_fournisseur in erp_bon_de_reception_fournisseurs %}
+            <tr>
+                <td>{{ erp_bon_de_reception_fournisseur.id }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.code }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.codedevis }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.masociete }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.monadresse }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.montel }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.monfax }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.monregistre }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.monmatricule }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.clientcode }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.clientraison }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.clientnom }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.clientprenom }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.clienttel }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.clientfax }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.clientadresse }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.clientmatricule }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.totalht }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.totaltva }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.remises }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.timbres }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.totalttc }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.chauffeurnom }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.chauffeurvehicule }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.creationcode }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.creationnom }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.creationprenom }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.creationdate }}</td>
+                <td>{{ erp_bon_de_reception_fournisseur.creationheure }}</td>
+                <td>
+                    <a href="{{ path('app_erp_bon_de_reception_fournisseur_show', {'id': erp_bon_de_reception_fournisseur.id}) }}">show</a>
+                    <a href="{{ path('app_erp_bon_de_reception_fournisseur_edit', {'id': erp_bon_de_reception_fournisseur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="30">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_bon_de_reception_fournisseur_new') }}">Create new</a>
+{% endblock %}

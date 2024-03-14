@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneCommandeClient index{% endblock %}
+
+{% block body %}
+    <h1>LigneCommandeClient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Reference</th>
+                <th>Produit</th>
+                <th>Quantite</th>
+                <th>Prixdeventeht</th>
+                <th>Remise</th>
+                <th>Tva</th>
+                <th>Soustotalht</th>
+                <th>Soustotalttc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligne_commande_client in ligne_commande_clients %}
+            <tr>
+                <td>{{ ligne_commande_client.id }}</td>
+                <td>{{ ligne_commande_client.code }}</td>
+                <td>{{ ligne_commande_client.codedevis }}</td>
+                <td>{{ ligne_commande_client.reference }}</td>
+                <td>{{ ligne_commande_client.produit }}</td>
+                <td>{{ ligne_commande_client.quantite }}</td>
+                <td>{{ ligne_commande_client.prixdeventeht }}</td>
+                <td>{{ ligne_commande_client.remise }}</td>
+                <td>{{ ligne_commande_client.tva }}</td>
+                <td>{{ ligne_commande_client.soustotalht }}</td>
+                <td>{{ ligne_commande_client.soustotalttc }}</td>
+                <td>
+                    <a href="{{ path('app_ligne_commande_client_show', {'id': ligne_commande_client.id}) }}">show</a>
+                    <a href="{{ path('app_ligne_commande_client_edit', {'id': ligne_commande_client.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ligne_commande_client_new') }}">Create new</a>
+{% endblock %}

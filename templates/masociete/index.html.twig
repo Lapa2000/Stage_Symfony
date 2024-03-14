@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Masociete index{% endblock %}
+
+{% block body %}
+    <h1>Masociete index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Fax</th>
+                <th>Mobile</th>
+                <th>Codefinance</th>
+                <th>Codebancaire</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Logo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for masociete in masocietes %}
+            <tr>
+                <td>{{ masociete.id }}</td>
+                <td>{{ masociete.code }}</td>
+                <td>{{ masociete.nom }}</td>
+                <td>{{ masociete.adresse }}</td>
+                <td>{{ masociete.tel }}</td>
+                <td>{{ masociete.fax }}</td>
+                <td>{{ masociete.mobile }}</td>
+                <td>{{ masociete.codefinance }}</td>
+                <td>{{ masociete.codebancaire }}</td>
+                <td>{{ masociete.email }}</td>
+                <td>{{ masociete.website }}</td>
+                <td>{{ masociete.logo }}</td>
+                <td>
+                    <a href="{{ path('app_masociete_show', {'id': masociete.id}) }}">show</a>
+                    <a href="{{ path('app_masociete_edit', {'id': masociete.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_masociete_new') }}">Create new</a>
+{% endblock %}

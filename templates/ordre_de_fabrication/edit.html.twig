@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit OrdreDeFabrication{% endblock %}
+
+{% block body %}
+    <h1>Edit OrdreDeFabrication</h1>
+
+    {{ include('ordre_de_fabrication/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_ordre_de_fabrication_index') }}">back to list</a>
+
+    {{ include('ordre_de_fabrication/_delete_form.html.twig') }}
+{% endblock %}

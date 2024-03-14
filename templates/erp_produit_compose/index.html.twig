@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpProduitCompose index{% endblock %}
+
+{% block body %}
+    <h1>ErpProduitCompose index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codeproduit</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Categorie</th>
+                <th>Methodeapprovisionement</th>
+                <th>Prixachatht</th>
+                <th>Prixventeht</th>
+                <th>Unitestock</th>
+                <th>Fournisseur</th>
+                <th>Dateachat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_produit_compose in erp_produit_composes %}
+            <tr>
+                <td>{{ erp_produit_compose.id }}</td>
+                <td>{{ erp_produit_compose.code }}</td>
+                <td>{{ erp_produit_compose.codeproduit }}</td>
+                <td>{{ erp_produit_compose.image }}</td>
+                <td>{{ erp_produit_compose.nom }}</td>
+                <td>{{ erp_produit_compose.description }}</td>
+                <td>{{ erp_produit_compose.type }}</td>
+                <td>{{ erp_produit_compose.categorie }}</td>
+                <td>{{ erp_produit_compose.methodeapprovisionement }}</td>
+                <td>{{ erp_produit_compose.prixachatht }}</td>
+                <td>{{ erp_produit_compose.prixventeht }}</td>
+                <td>{{ erp_produit_compose.unitestock }}</td>
+                <td>{{ erp_produit_compose.fournisseur }}</td>
+                <td>{{ erp_produit_compose.dateachat ? erp_produit_compose.dateachat|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_produit_compose.creepar }}</td>
+                <td>{{ erp_produit_compose.datecreation ? erp_produit_compose.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_produit_compose.datemodification }}</td>
+                <td>
+                    <a href="{{ path('app_erp_produit_compose_show', {'id': erp_produit_compose.id}) }}">show</a>
+                    <a href="{{ path('app_erp_produit_compose_edit', {'id': erp_produit_compose.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_produit_compose_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpPays{% endblock %}
+
+{% block body %}
+    <h1>ErpPays</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_pay.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_pay.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ erp_pay.nom }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_pay.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_pay.datecreation ? erp_pay.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_pay.datemodification ? erp_pay.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_pays_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_pays_edit', {'id': erp_pay.id}) }}">edit</a>
+
+    {{ include('erp_pays/_delete_form.html.twig') }}
+{% endblock %}

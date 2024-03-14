@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContratFournisseur{% endblock %}
+
+{% block body %}
+    <h1>ContratFournisseur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contrat_fournisseur.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ contrat_fournisseur.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contrat_fournisseur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ contrat_fournisseur.description }}</td>
+            </tr>
+            <tr>
+                <th>Fichier</th>
+                <td>{{ contrat_fournisseur.fichier }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ contrat_fournisseur.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ contrat_fournisseur.datecreation ? contrat_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ contrat_fournisseur.datemodification ? contrat_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contrat_fournisseur_index') }}">back to list</a>
+
+    <a href="{{ path('app_contrat_fournisseur_edit', {'id': contrat_fournisseur.id}) }}">edit</a>
+
+    {{ include('contrat_fournisseur/_delete_form.html.twig') }}
+{% endblock %}

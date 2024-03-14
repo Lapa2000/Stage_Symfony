@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpObjectifs{% endblock %}
+
+{% block body %}
+    <h1>ErpObjectifs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_objectif.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_objectif.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ erp_objectif.nom }}</td>
+            </tr>
+            <tr>
+                <th>Assignea</th>
+                <td>{{ erp_objectif.assignea }}</td>
+            </tr>
+            <tr>
+                <th>Equipe</th>
+                <td>{{ erp_objectif.equipe }}</td>
+            </tr>
+            <tr>
+                <th>Typeprogramme</th>
+                <td>{{ erp_objectif.typeprogramme }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ erp_objectif.datedebut ? erp_objectif.datedebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ erp_objectif.datefin ? erp_objectif.datefin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_objectif.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_objectif.datecreation ? erp_objectif.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_objectif.datemodification ? erp_objectif.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_objectifs_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_objectifs_edit', {'id': erp_objectif.id}) }}">edit</a>
+
+    {{ include('erp_objectifs/_delete_form.html.twig') }}
+{% endblock %}

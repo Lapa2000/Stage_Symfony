@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpObjectifs{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpObjectifs</h1>
+
+    {{ include('erp_objectifs/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_objectifs_index') }}">back to list</a>
+{% endblock %}

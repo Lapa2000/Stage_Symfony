@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DevisFournisseurs{% endblock %}
+
+{% block body %}
+    <h1>DevisFournisseurs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ devis_fournisseur.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ devis_fournisseur.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ devis_fournisseur.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Monlogo</th>
+                <td>{{ devis_fournisseur.monlogo }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ devis_fournisseur.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ devis_fournisseur.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ devis_fournisseur.montel }}</td>
+            </tr>
+            <tr>
+                <th>Nomclient</th>
+                <td>{{ devis_fournisseur.nomclient }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ devis_fournisseur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telclient</th>
+                <td>{{ devis_fournisseur.telclient }}</td>
+            </tr>
+            <tr>
+                <th>Datedevis</th>
+                <td>{{ devis_fournisseur.datedevis }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ devis_fournisseur.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ devis_fournisseur.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ devis_fournisseur.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ devis_fournisseur.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ devis_fournisseur.datecreation ? devis_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ devis_fournisseur.datemodification ? devis_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_devis_fournisseurs_index') }}">back to list</a>
+
+    <a href="{{ path('app_devis_fournisseurs_edit', {'id': devis_fournisseur.id}) }}">edit</a>
+
+    {{ include('devis_fournisseurs/_delete_form.html.twig') }}
+{% endblock %}

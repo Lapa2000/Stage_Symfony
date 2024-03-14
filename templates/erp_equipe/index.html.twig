@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpEquipe index{% endblock %}
+
+{% block body %}
+    <h1>ErpEquipe index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Etat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_equipe in erp_equipes %}
+            <tr>
+                <td>{{ erp_equipe.id }}</td>
+                <td>{{ erp_equipe.code }}</td>
+                <td>{{ erp_equipe.nom }}</td>
+                <td>{{ erp_equipe.description }}</td>
+                <td>{{ erp_equipe.etat }}</td>
+                <td>{{ erp_equipe.creepar }}</td>
+                <td>{{ erp_equipe.datecreation ? erp_equipe.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_equipe.datemodification ? erp_equipe.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_equipe_show', {'id': erp_equipe.id}) }}">show</a>
+                    <a href="{{ path('app_erp_equipe_edit', {'id': erp_equipe.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_equipe_new') }}">Create new</a>
+{% endblock %}

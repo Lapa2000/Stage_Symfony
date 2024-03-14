@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpParametres{% endblock %}
+
+{% block body %}
+    <h1>ErpParametres</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_parametre.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_parametre.code }}</td>
+            </tr>
+            <tr>
+                <th>Logosociete</th>
+                <td>{{ erp_parametre.logosociete }}</td>
+            </tr>
+            <tr>
+                <th>Nomsociete</th>
+                <td>{{ erp_parametre.nomsociete }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ erp_parametre.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Codepostal</th>
+                <td>{{ erp_parametre.codepostal }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ erp_parametre.ville }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ erp_parametre.tel }}</td>
+            </tr>
+            <tr>
+                <th>Tel2</th>
+                <td>{{ erp_parametre.tel2 }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ erp_parametre.fax }}</td>
+            </tr>
+            <tr>
+                <th>Registrecommerce</th>
+                <td>{{ erp_parametre.registrecommerce }}</td>
+            </tr>
+            <tr>
+                <th>Matriculefiscale</th>
+                <td>{{ erp_parametre.matriculefiscale }}</td>
+            </tr>
+            <tr>
+                <th>Rib</th>
+                <td>{{ erp_parametre.rib }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_parametre.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_parametre.datecreation ? erp_parametre.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_parametre.datemodification ? erp_parametre.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_parametres_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_parametres_edit', {'id': erp_parametre.id}) }}">edit</a>
+
+    {{ include('erp_parametres/_delete_form.html.twig') }}
+{% endblock %}

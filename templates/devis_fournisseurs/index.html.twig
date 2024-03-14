@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DevisFournisseurs index{% endblock %}
+
+{% block body %}
+    <h1>DevisFournisseurs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Monlogo</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Nomclient</th>
+                <th>Adresse</th>
+                <th>Telclient</th>
+                <th>Datedevis</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Totalttc</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for devis_fournisseur in devis_fournisseurs %}
+            <tr>
+                <td>{{ devis_fournisseur.id }}</td>
+                <td>{{ devis_fournisseur.code }}</td>
+                <td>{{ devis_fournisseur.codedevis }}</td>
+                <td>{{ devis_fournisseur.monlogo }}</td>
+                <td>{{ devis_fournisseur.masociete }}</td>
+                <td>{{ devis_fournisseur.monadresse }}</td>
+                <td>{{ devis_fournisseur.montel }}</td>
+                <td>{{ devis_fournisseur.nomclient }}</td>
+                <td>{{ devis_fournisseur.adresse }}</td>
+                <td>{{ devis_fournisseur.telclient }}</td>
+                <td>{{ devis_fournisseur.datedevis }}</td>
+                <td>{{ devis_fournisseur.totalht }}</td>
+                <td>{{ devis_fournisseur.totaltva }}</td>
+                <td>{{ devis_fournisseur.totalttc }}</td>
+                <td>{{ devis_fournisseur.creepar }}</td>
+                <td>{{ devis_fournisseur.datecreation ? devis_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ devis_fournisseur.datemodification ? devis_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_devis_fournisseurs_show', {'id': devis_fournisseur.id}) }}">show</a>
+                    <a href="{{ path('app_devis_fournisseurs_edit', {'id': devis_fournisseur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_devis_fournisseurs_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpChauffeurs{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpChauffeurs</h1>
+
+    {{ include('erp_chauffeurs/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_chauffeurs_index') }}">back to list</a>
+
+    {{ include('erp_chauffeurs/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CommandeFournisseurNew index{% endblock %}
+
+{% block body %}
+    <h1>CommandeFournisseurNew index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Monlogo</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Nomclient</th>
+                <th>Adresse</th>
+                <th>Telclient</th>
+                <th>Datedevis</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Totalttc</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande_fournisseur_new in commande_fournisseur_news %}
+            <tr>
+                <td>{{ commande_fournisseur_new.id }}</td>
+                <td>{{ commande_fournisseur_new.code }}</td>
+                <td>{{ commande_fournisseur_new.codedevis }}</td>
+                <td>{{ commande_fournisseur_new.monlogo }}</td>
+                <td>{{ commande_fournisseur_new.masociete }}</td>
+                <td>{{ commande_fournisseur_new.monadresse }}</td>
+                <td>{{ commande_fournisseur_new.montel }}</td>
+                <td>{{ commande_fournisseur_new.nomclient }}</td>
+                <td>{{ commande_fournisseur_new.adresse }}</td>
+                <td>{{ commande_fournisseur_new.telclient }}</td>
+                <td>{{ commande_fournisseur_new.datedevis }}</td>
+                <td>{{ commande_fournisseur_new.totalht }}</td>
+                <td>{{ commande_fournisseur_new.totaltva }}</td>
+                <td>{{ commande_fournisseur_new.totalttc }}</td>
+                <td>{{ commande_fournisseur_new.creepar }}</td>
+                <td>{{ commande_fournisseur_new.datecreation ? commande_fournisseur_new.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ commande_fournisseur_new.datemodification ? commande_fournisseur_new.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_commande_fournisseur_new_show', {'id': commande_fournisseur_new.id}) }}">show</a>
+                    <a href="{{ path('app_commande_fournisseur_new_edit', {'id': commande_fournisseur_new.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commande_fournisseur_new_new') }}">Create new</a>
+{% endblock %}

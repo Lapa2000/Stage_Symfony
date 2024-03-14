@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FactureAutresNewData index{% endblock %}
+
+{% block body %}
+    <h1>FactureAutresNewData index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nomclient</th>
+                <th>Adresse</th>
+                <th>Telclient</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Totalttc</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>Type</th>
+                <th>Etat</th>
+                <th>Typepaiment</th>
+                <th>Numerocheque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture_autres_new_datum in facture_autres_new_datas %}
+            <tr>
+                <td>{{ facture_autres_new_datum.id }}</td>
+                <td>{{ facture_autres_new_datum.code }}</td>
+                <td>{{ facture_autres_new_datum.nomclient }}</td>
+                <td>{{ facture_autres_new_datum.adresse }}</td>
+                <td>{{ facture_autres_new_datum.telclient }}</td>
+                <td>{{ facture_autres_new_datum.totalht }}</td>
+                <td>{{ facture_autres_new_datum.totaltva }}</td>
+                <td>{{ facture_autres_new_datum.totalttc }}</td>
+                <td>{{ facture_autres_new_datum.creepar }}</td>
+                <td>{{ facture_autres_new_datum.datecreation ? facture_autres_new_datum.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ facture_autres_new_datum.datemodification ? facture_autres_new_datum.datemodification|date('Y-m-d') : '' }}</td>
+                <td>{{ facture_autres_new_datum.type }}</td>
+                <td>{{ facture_autres_new_datum.etat }}</td>
+                <td>{{ facture_autres_new_datum.typepaiment }}</td>
+                <td>{{ facture_autres_new_datum.numerocheque }}</td>
+                <td>
+                    <a href="{{ path('app_facture_autres_new_data_show', {'id': facture_autres_new_datum.id}) }}">show</a>
+                    <a href="{{ path('app_facture_autres_new_data_edit', {'id': facture_autres_new_datum.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_facture_autres_new_data_new') }}">Create new</a>
+{% endblock %}

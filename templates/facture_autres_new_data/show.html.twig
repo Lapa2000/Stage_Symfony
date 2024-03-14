@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FactureAutresNewData{% endblock %}
+
+{% block body %}
+    <h1>FactureAutresNewData</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ facture_autres_new_datum.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ facture_autres_new_datum.code }}</td>
+            </tr>
+            <tr>
+                <th>Nomclient</th>
+                <td>{{ facture_autres_new_datum.nomclient }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ facture_autres_new_datum.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telclient</th>
+                <td>{{ facture_autres_new_datum.telclient }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ facture_autres_new_datum.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ facture_autres_new_datum.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ facture_autres_new_datum.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ facture_autres_new_datum.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ facture_autres_new_datum.datecreation ? facture_autres_new_datum.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ facture_autres_new_datum.datemodification ? facture_autres_new_datum.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ facture_autres_new_datum.type }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ facture_autres_new_datum.etat }}</td>
+            </tr>
+            <tr>
+                <th>Typepaiment</th>
+                <td>{{ facture_autres_new_datum.typepaiment }}</td>
+            </tr>
+            <tr>
+                <th>Numerocheque</th>
+                <td>{{ facture_autres_new_datum.numerocheque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_facture_autres_new_data_index') }}">back to list</a>
+
+    <a href="{{ path('app_facture_autres_new_data_edit', {'id': facture_autres_new_datum.id}) }}">edit</a>
+
+    {{ include('facture_autres_new_data/_delete_form.html.twig') }}
+{% endblock %}

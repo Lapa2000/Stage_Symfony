@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpFacturesClient{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpFacturesClient</h1>
+
+    {{ include('erp_factures_client/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_factures_client_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AvoirFournisseurs{% endblock %}
+
+{% block body %}
+    <h1>AvoirFournisseurs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ avoir_fournisseur.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ avoir_fournisseur.code }}</td>
+            </tr>
+            <tr>
+                <th>Codeavoir</th>
+                <td>{{ avoir_fournisseur.codeavoir }}</td>
+            </tr>
+            <tr>
+                <th>Codefournisseur</th>
+                <td>{{ avoir_fournisseur.codefournisseur }}</td>
+            </tr>
+            <tr>
+                <th>Codefacture</th>
+                <td>{{ avoir_fournisseur.codefacture }}</td>
+            </tr>
+            <tr>
+                <th>Montantrestant</th>
+                <td>{{ avoir_fournisseur.montantrestant }}</td>
+            </tr>
+            <tr>
+                <th>Datemontant</th>
+                <td>{{ avoir_fournisseur.datemontant }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ avoir_fournisseur.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ avoir_fournisseur.datecreation ? avoir_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ avoir_fournisseur.datemodification ? avoir_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_avoir_fournisseurs_index') }}">back to list</a>
+
+    <a href="{{ path('app_avoir_fournisseurs_edit', {'id': avoir_fournisseur.id}) }}">edit</a>
+
+    {{ include('avoir_fournisseurs/_delete_form.html.twig') }}
+{% endblock %}

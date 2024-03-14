@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LigneFacturesClients{% endblock %}
+
+{% block body %}
+    <h1>Create new LigneFacturesClients</h1>
+
+    {{ include('ligne_factures_clients/_form.html.twig') }}
+
+    <a href="{{ path('app_ligne_factures_clients_index') }}">back to list</a>
+{% endblock %}

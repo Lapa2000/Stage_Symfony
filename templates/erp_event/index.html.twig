@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpEvent index{% endblock %}
+
+{% block body %}
+    <h1>ErpEvent index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_event in erp_events %}
+            <tr>
+                <td>{{ erp_event.id }}</td>
+                <td>{{ erp_event.code }}</td>
+                <td>{{ erp_event.titre }}</td>
+                <td>{{ erp_event.description }}</td>
+                <td>{{ erp_event.image }}</td>
+                <td>{{ erp_event.creepar }}</td>
+                <td>{{ erp_event.datecreation ? erp_event.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_event.datemodification ? erp_event.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_event_show', {'id': erp_event.id}) }}">show</a>
+                    <a href="{{ path('app_erp_event_edit', {'id': erp_event.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_event_new') }}">Create new</a>
+{% endblock %}

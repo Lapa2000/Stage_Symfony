@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit LigneFacturesClients{% endblock %}
+
+{% block body %}
+    <h1>Edit LigneFacturesClients</h1>
+
+    {{ include('ligne_factures_clients/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_ligne_factures_clients_index') }}">back to list</a>
+
+    {{ include('ligne_factures_clients/_delete_form.html.twig') }}
+{% endblock %}

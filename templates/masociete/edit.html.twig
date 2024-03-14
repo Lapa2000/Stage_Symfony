@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Masociete{% endblock %}
+
+{% block body %}
+    <h1>Edit Masociete</h1>
+
+    {{ include('masociete/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_masociete_index') }}">back to list</a>
+
+    {{ include('masociete/_delete_form.html.twig') }}
+{% endblock %}

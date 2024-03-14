@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FactureClientNewData index{% endblock %}
+
+{% block body %}
+    <h1>FactureClientNewData index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Monfax</th>
+                <th>Monregistre</th>
+                <th>Monmatricule</th>
+                <th>Clientcode</th>
+                <th>Clientraison</th>
+                <th>Clientnom</th>
+                <th>Clientprenom</th>
+                <th>Clienttel</th>
+                <th>Clientfax</th>
+                <th>Clientadresse</th>
+                <th>Clientmatricule</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Remises</th>
+                <th>Timbres</th>
+                <th>Totalttc</th>
+                <th>Chauffeurnom</th>
+                <th>Chauffeurvehicule</th>
+                <th>Creationcode</th>
+                <th>Creationnom</th>
+                <th>Creationprenom</th>
+                <th>Creationdate</th>
+                <th>Creationheure</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture_client_new_datum in facture_client_new_datas %}
+            <tr>
+                <td>{{ facture_client_new_datum.id }}</td>
+                <td>{{ facture_client_new_datum.code }}</td>
+                <td>{{ facture_client_new_datum.codedevis }}</td>
+                <td>{{ facture_client_new_datum.masociete }}</td>
+                <td>{{ facture_client_new_datum.monadresse }}</td>
+                <td>{{ facture_client_new_datum.montel }}</td>
+                <td>{{ facture_client_new_datum.monfax }}</td>
+                <td>{{ facture_client_new_datum.monregistre }}</td>
+                <td>{{ facture_client_new_datum.monmatricule }}</td>
+                <td>{{ facture_client_new_datum.clientcode }}</td>
+                <td>{{ facture_client_new_datum.clientraison }}</td>
+                <td>{{ facture_client_new_datum.clientnom }}</td>
+                <td>{{ facture_client_new_datum.clientprenom }}</td>
+                <td>{{ facture_client_new_datum.clienttel }}</td>
+                <td>{{ facture_client_new_datum.clientfax }}</td>
+                <td>{{ facture_client_new_datum.clientadresse }}</td>
+                <td>{{ facture_client_new_datum.clientmatricule }}</td>
+                <td>{{ facture_client_new_datum.totalht }}</td>
+                <td>{{ facture_client_new_datum.totaltva }}</td>
+                <td>{{ facture_client_new_datum.remises }}</td>
+                <td>{{ facture_client_new_datum.timbres }}</td>
+                <td>{{ facture_client_new_datum.totalttc }}</td>
+                <td>{{ facture_client_new_datum.chauffeurnom }}</td>
+                <td>{{ facture_client_new_datum.chauffeurvehicule }}</td>
+                <td>{{ facture_client_new_datum.creationcode }}</td>
+                <td>{{ facture_client_new_datum.creationnom }}</td>
+                <td>{{ facture_client_new_datum.creationprenom }}</td>
+                <td>{{ facture_client_new_datum.creationdate }}</td>
+                <td>{{ facture_client_new_datum.creationheure }}</td>
+                <td>
+                    <a href="{{ path('app_facture_client_new_data_show', {'id': facture_client_new_datum.id}) }}">show</a>
+                    <a href="{{ path('app_facture_client_new_data_edit', {'id': facture_client_new_datum.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="30">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_facture_client_new_data_new') }}">Create new</a>
+{% endblock %}

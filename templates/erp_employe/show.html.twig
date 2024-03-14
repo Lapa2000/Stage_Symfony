@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpEmploye{% endblock %}
+
+{% block body %}
+    <h1>ErpEmploye</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_employe.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_employe.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ erp_employe.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ erp_employe.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ erp_employe.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ erp_employe.tel }}</td>
+            </tr>
+            <tr>
+                <th>Tel2</th>
+                <td>{{ erp_employe.tel2 }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ erp_employe.fax }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ erp_employe.email }}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>{{ erp_employe.website }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ erp_employe.image }}</td>
+            </tr>
+            <tr>
+                <th>Login</th>
+                <td>{{ erp_employe.login }}</td>
+            </tr>
+            <tr>
+                <th>Motdepasse</th>
+                <td>{{ erp_employe.motdepasse }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_employe.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_employe.datecreation ? erp_employe.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_employe.datemodification ? erp_employe.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_employe_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_employe_edit', {'id': erp_employe.id}) }}">edit</a>
+
+    {{ include('erp_employe/_delete_form.html.twig') }}
+{% endblock %}

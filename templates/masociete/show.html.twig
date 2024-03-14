@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Masociete{% endblock %}
+
+{% block body %}
+    <h1>Masociete</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ masociete.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ masociete.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ masociete.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ masociete.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ masociete.tel }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ masociete.fax }}</td>
+            </tr>
+            <tr>
+                <th>Mobile</th>
+                <td>{{ masociete.mobile }}</td>
+            </tr>
+            <tr>
+                <th>Codefinance</th>
+                <td>{{ masociete.codefinance }}</td>
+            </tr>
+            <tr>
+                <th>Codebancaire</th>
+                <td>{{ masociete.codebancaire }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ masociete.email }}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>{{ masociete.website }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ masociete.logo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_masociete_index') }}">back to list</a>
+
+    <a href="{{ path('app_masociete_edit', {'id': masociete.id}) }}">edit</a>
+
+    {{ include('masociete/_delete_form.html.twig') }}
+{% endblock %}

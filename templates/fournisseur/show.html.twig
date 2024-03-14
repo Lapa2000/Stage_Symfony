@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AgentFournisseur{% endblock %}
+
+{% block body %}
+    <h1>AgentFournisseur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ agent_fournisseur.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ agent_fournisseur.code }}</td>
+            </tr>
+            <tr>
+                <th>Raisonsocial</th>
+                <td>{{ agent_fournisseur.raisonsocial }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ agent_fournisseur.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Adresseadministratif</th>
+                <td>{{ agent_fournisseur.adresseadministratif }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ agent_fournisseur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ agent_fournisseur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ agent_fournisseur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ agent_fournisseur.tel }}</td>
+            </tr>
+            <tr>
+                <th>Tel2</th>
+                <td>{{ agent_fournisseur.tel2 }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ agent_fournisseur.fax }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ agent_fournisseur.email }}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>{{ agent_fournisseur.website }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ agent_fournisseur.image }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ agent_fournisseur.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ agent_fournisseur.datecreation ? agent_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ agent_fournisseur.datemodification ? agent_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fournisseur_index') }}">back to list</a>
+
+    <a href="{{ path('app_fournisseur_edit', {'id': agent_fournisseur.id}) }}">edit</a>
+
+    {{ include('fournisseur/_delete_form.html.twig') }}
+{% endblock %}

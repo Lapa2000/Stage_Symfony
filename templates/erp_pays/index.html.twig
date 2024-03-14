@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpPays index{% endblock %}
+
+{% block body %}
+    <h1>ErpPays index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_pay in erp_pays %}
+            <tr>
+                <td>{{ erp_pay.id }}</td>
+                <td>{{ erp_pay.code }}</td>
+                <td>{{ erp_pay.nom }}</td>
+                <td>{{ erp_pay.creepar }}</td>
+                <td>{{ erp_pay.datecreation ? erp_pay.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_pay.datemodification ? erp_pay.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_pays_show', {'id': erp_pay.id}) }}">show</a>
+                    <a href="{{ path('app_erp_pays_edit', {'id': erp_pay.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_pays_new') }}">Create new</a>
+{% endblock %}

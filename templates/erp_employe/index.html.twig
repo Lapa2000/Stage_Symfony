@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpEmploye index{% endblock %}
+
+{% block body %}
+    <h1>ErpEmploye index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Tel2</th>
+                <th>Fax</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Image</th>
+                <th>Login</th>
+                <th>Motdepasse</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_employe in erp_employes %}
+            <tr>
+                <td>{{ erp_employe.id }}</td>
+                <td>{{ erp_employe.code }}</td>
+                <td>{{ erp_employe.nom }}</td>
+                <td>{{ erp_employe.prenom }}</td>
+                <td>{{ erp_employe.adresse }}</td>
+                <td>{{ erp_employe.tel }}</td>
+                <td>{{ erp_employe.tel2 }}</td>
+                <td>{{ erp_employe.fax }}</td>
+                <td>{{ erp_employe.email }}</td>
+                <td>{{ erp_employe.website }}</td>
+                <td>{{ erp_employe.image }}</td>
+                <td>{{ erp_employe.login }}</td>
+                <td>{{ erp_employe.motdepasse }}</td>
+                <td>{{ erp_employe.creepar }}</td>
+                <td>{{ erp_employe.datecreation ? erp_employe.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_employe.datemodification ? erp_employe.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_employe_show', {'id': erp_employe.id}) }}">show</a>
+                    <a href="{{ path('app_erp_employe_edit', {'id': erp_employe.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_employe_new') }}">Create new</a>
+{% endblock %}

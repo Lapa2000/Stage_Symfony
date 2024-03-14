@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneCommandeFournisseurNew index{% endblock %}
+
+{% block body %}
+    <h1>LigneCommandeFournisseurNew index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Reference</th>
+                <th>Produit</th>
+                <th>Quantite</th>
+                <th>Prixdeventeht</th>
+                <th>Remise</th>
+                <th>Tva</th>
+                <th>Soustotalht</th>
+                <th>Soustotalttc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligne_commande_fournisseur_new in ligne_commande_fournisseur_news %}
+            <tr>
+                <td>{{ ligne_commande_fournisseur_new.id }}</td>
+                <td>{{ ligne_commande_fournisseur_new.code }}</td>
+                <td>{{ ligne_commande_fournisseur_new.codedevis }}</td>
+                <td>{{ ligne_commande_fournisseur_new.reference }}</td>
+                <td>{{ ligne_commande_fournisseur_new.produit }}</td>
+                <td>{{ ligne_commande_fournisseur_new.quantite }}</td>
+                <td>{{ ligne_commande_fournisseur_new.prixdeventeht }}</td>
+                <td>{{ ligne_commande_fournisseur_new.remise }}</td>
+                <td>{{ ligne_commande_fournisseur_new.tva }}</td>
+                <td>{{ ligne_commande_fournisseur_new.soustotalht }}</td>
+                <td>{{ ligne_commande_fournisseur_new.soustotalttc }}</td>
+                <td>
+                    <a href="{{ path('app_ligne_commande_fournisseur_new_show', {'id': ligne_commande_fournisseur_new.id}) }}">show</a>
+                    <a href="{{ path('app_ligne_commande_fournisseur_new_edit', {'id': ligne_commande_fournisseur_new.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ligne_commande_fournisseur_new_new') }}">Create new</a>
+{% endblock %}

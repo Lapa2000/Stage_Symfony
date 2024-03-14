@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpCommandeClient index{% endblock %}
+
+{% block body %}
+    <h1>ErpCommandeClient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Monlogo</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Nomclient</th>
+                <th>Adresse</th>
+                <th>Telclient</th>
+                <th>Codedevis</th>
+                <th>Datedevis</th>
+                <th>Totalht</th>
+                <th>Totaltva</th>
+                <th>Totalttc</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_commande_client in erp_commande_clients %}
+            <tr>
+                <td>{{ erp_commande_client.id }}</td>
+                <td>{{ erp_commande_client.code }}</td>
+                <td>{{ erp_commande_client.monlogo }}</td>
+                <td>{{ erp_commande_client.masociete }}</td>
+                <td>{{ erp_commande_client.monadresse }}</td>
+                <td>{{ erp_commande_client.montel }}</td>
+                <td>{{ erp_commande_client.nomclient }}</td>
+                <td>{{ erp_commande_client.adresse }}</td>
+                <td>{{ erp_commande_client.telclient }}</td>
+                <td>{{ erp_commande_client.codedevis }}</td>
+                <td>{{ erp_commande_client.datedevis }}</td>
+                <td>{{ erp_commande_client.totalht }}</td>
+                <td>{{ erp_commande_client.totaltva }}</td>
+                <td>{{ erp_commande_client.totalttc }}</td>
+                <td>{{ erp_commande_client.creepar }}</td>
+                <td>{{ erp_commande_client.datecreation ? erp_commande_client.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_commande_client.datemodification ? erp_commande_client.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_commande_client_show', {'id': erp_commande_client.id}) }}">show</a>
+                    <a href="{{ path('app_erp_commande_client_edit', {'id': erp_commande_client.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_commande_client_new') }}">Create new</a>
+{% endblock %}

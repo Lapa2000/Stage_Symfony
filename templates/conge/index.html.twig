@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conge index{% endblock %}
+
+{% block body %}
+    <h1>Conge index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Codeemployee</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Categorie</th>
+                <th>Etat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conge in conges %}
+            <tr>
+                <td>{{ conge.id }}</td>
+                <td>{{ conge.code }}</td>
+                <td>{{ conge.titre }}</td>
+                <td>{{ conge.description }}</td>
+                <td>{{ conge.codeemployee }}</td>
+                <td>{{ conge.datedebut }}</td>
+                <td>{{ conge.datefin }}</td>
+                <td>{{ conge.categorie }}</td>
+                <td>{{ conge.etat }}</td>
+                <td>{{ conge.creepar }}</td>
+                <td>{{ conge.datecreation ? conge.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ conge.datemodification ? conge.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_conge_show', {'id': conge.id}) }}">show</a>
+                    <a href="{{ path('app_conge_edit', {'id': conge.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_conge_new') }}">Create new</a>
+{% endblock %}

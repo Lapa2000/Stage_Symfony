@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpLigneFacturesFournisseurs index{% endblock %}
+
+{% block body %}
+    <h1>ErpLigneFacturesFournisseurs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Reference</th>
+                <th>Produit</th>
+                <th>Quantite</th>
+                <th>Prixdeventeht</th>
+                <th>Remise</th>
+                <th>Tva</th>
+                <th>Soustotalht</th>
+                <th>Soustotalttc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_ligne_factures_fournisseur in erp_ligne_factures_fournisseurs %}
+            <tr>
+                <td>{{ erp_ligne_factures_fournisseur.id }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.code }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.codedevis }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.reference }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.produit }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.quantite }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.prixdeventeht }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.remise }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.tva }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.soustotalht }}</td>
+                <td>{{ erp_ligne_factures_fournisseur.soustotalttc }}</td>
+                <td>
+                    <a href="{{ path('app_erp_ligne_factures_fournisseurs_show', {'id': erp_ligne_factures_fournisseur.id}) }}">show</a>
+                    <a href="{{ path('app_erp_ligne_factures_fournisseurs_edit', {'id': erp_ligne_factures_fournisseur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_ligne_factures_fournisseurs_new') }}">Create new</a>
+{% endblock %}

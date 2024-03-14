@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpClient index{% endblock %}
+
+{% block body %}
+    <h1>ErpClient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Anciencode</th>
+                <th>Typearrive</th>
+                <th>Surnom</th>
+                <th>Prenomdeux</th>
+                <th>Pays</th>
+                <th>Ville</th>
+                <th>Codepostal</th>
+                <th>Raisonsocial</th>
+                <th>Registrecommerce</th>
+                <th>Matriculefiscal</th>
+                <th>Rib</th>
+                <th>Intervenanttype</th>
+                <th>Intervenantnom</th>
+                <th>Cin</th>
+                <th>Cheque</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Tel2</th>
+                <th>Fax</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Image</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_client in erp_clients %}
+            <tr>
+                <td>{{ erp_client.id }}</td>
+                <td>{{ erp_client.code }}</td>
+                <td>{{ erp_client.anciencode }}</td>
+                <td>{{ erp_client.typearrive }}</td>
+                <td>{{ erp_client.surnom }}</td>
+                <td>{{ erp_client.prenomdeux }}</td>
+                <td>{{ erp_client.pays }}</td>
+                <td>{{ erp_client.ville }}</td>
+                <td>{{ erp_client.codepostal }}</td>
+                <td>{{ erp_client.raisonsocial }}</td>
+                <td>{{ erp_client.registrecommerce }}</td>
+                <td>{{ erp_client.matriculefiscal }}</td>
+                <td>{{ erp_client.rib }}</td>
+                <td>{{ erp_client.intervenanttype }}</td>
+                <td>{{ erp_client.intervenantnom }}</td>
+                <td>{{ erp_client.cin }}</td>
+                <td>{{ erp_client.cheque }}</td>
+                <td>{{ erp_client.nom }}</td>
+                <td>{{ erp_client.prenom }}</td>
+                <td>{{ erp_client.adresse }}</td>
+                <td>{{ erp_client.tel }}</td>
+                <td>{{ erp_client.tel2 }}</td>
+                <td>{{ erp_client.fax }}</td>
+                <td>{{ erp_client.email }}</td>
+                <td>{{ erp_client.website }}</td>
+                <td>{{ erp_client.image }}</td>
+                <td>{{ erp_client.creepar }}</td>
+                <td>{{ erp_client.datecreation ? erp_client.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_client.datemodification ? erp_client.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_client_show', {'id': erp_client.id}) }}">show</a>
+                    <a href="{{ path('app_erp_client_edit', {'id': erp_client.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="30">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_client_new') }}">Create new</a>
+{% endblock %}

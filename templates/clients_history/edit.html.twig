@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit AvoirClientsHistory{% endblock %}
+
+{% block body %}
+    <h1>Edit AvoirClientsHistory</h1>
+
+    {{ include('clients_history/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_clients_history_index') }}">back to list</a>
+
+    {{ include('clients_history/_delete_form.html.twig') }}
+{% endblock %}

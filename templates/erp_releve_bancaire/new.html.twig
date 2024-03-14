@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpReleveBancaire{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpReleveBancaire</h1>
+
+    {{ include('erp_releve_bancaire/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_releve_bancaire_index') }}">back to list</a>
+{% endblock %}

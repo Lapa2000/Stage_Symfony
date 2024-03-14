@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpLigneProduction{% endblock %}
+
+{% block body %}
+    <h1>ErpLigneProduction</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_ligne_production.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_ligne_production.code }}</td>
+            </tr>
+            <tr>
+                <th>Codeligne</th>
+                <td>{{ erp_ligne_production.codeligne }}</td>
+            </tr>
+            <tr>
+                <th>Refproduit</th>
+                <td>{{ erp_ligne_production.refproduit }}</td>
+            </tr>
+            <tr>
+                <th>Ancienqte</th>
+                <td>{{ erp_ligne_production.ancienqte }}</td>
+            </tr>
+            <tr>
+                <th>Newqte</th>
+                <td>{{ erp_ligne_production.newqte }}</td>
+            </tr>
+            <tr>
+                <th>Sortie</th>
+                <td>{{ erp_ligne_production.sortie }}</td>
+            </tr>
+            <tr>
+                <th>Restant</th>
+                <td>{{ erp_ligne_production.restant }}</td>
+            </tr>
+            <tr>
+                <th>Dateligne</th>
+                <td>{{ erp_ligne_production.dateligne }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_ligne_production_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_ligne_production_edit', {'id': erp_ligne_production.id}) }}">edit</a>
+
+    {{ include('erp_ligne_production/_delete_form.html.twig') }}
+{% endblock %}

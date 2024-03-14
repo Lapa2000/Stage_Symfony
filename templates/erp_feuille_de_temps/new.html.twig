@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpFeuilleDeTemps{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpFeuilleDeTemps</h1>
+
+    {{ include('erp_feuille_de_temps/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_feuille_de_temps_index') }}">back to list</a>
+{% endblock %}

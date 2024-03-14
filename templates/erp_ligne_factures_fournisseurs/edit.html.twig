@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpLigneFacturesFournisseurs{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpLigneFacturesFournisseurs</h1>
+
+    {{ include('erp_ligne_factures_fournisseurs/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_ligne_factures_fournisseurs_index') }}">back to list</a>
+
+    {{ include('erp_ligne_factures_fournisseurs/_delete_form.html.twig') }}
+{% endblock %}

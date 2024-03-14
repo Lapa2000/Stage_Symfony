@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpFeuilleDeTemps{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpFeuilleDeTemps</h1>
+
+    {{ include('erp_feuille_de_temps/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_feuille_de_temps_index') }}">back to list</a>
+
+    {{ include('erp_feuille_de_temps/_delete_form.html.twig') }}
+{% endblock %}

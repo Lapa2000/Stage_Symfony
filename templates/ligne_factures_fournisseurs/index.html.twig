@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneFacturesFournisseurs index{% endblock %}
+
+{% block body %}
+    <h1>LigneFacturesFournisseurs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Produit</th>
+                <th>Prixunitaire</th>
+                <th>Quantite</th>
+                <th>Prixtotal</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligne_factures_fournisseur in ligne_factures_fournisseurs %}
+            <tr>
+                <td>{{ ligne_factures_fournisseur.id }}</td>
+                <td>{{ ligne_factures_fournisseur.code }}</td>
+                <td>{{ ligne_factures_fournisseur.codedevis }}</td>
+                <td>{{ ligne_factures_fournisseur.produit }}</td>
+                <td>{{ ligne_factures_fournisseur.prixunitaire }}</td>
+                <td>{{ ligne_factures_fournisseur.quantite }}</td>
+                <td>{{ ligne_factures_fournisseur.prixtotal }}</td>
+                <td>
+                    <a href="{{ path('app_ligne_factures_fournisseurs_show', {'id': ligne_factures_fournisseur.id}) }}">show</a>
+                    <a href="{{ path('app_ligne_factures_fournisseurs_edit', {'id': ligne_factures_fournisseur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ligne_factures_fournisseurs_new') }}">Create new</a>
+{% endblock %}

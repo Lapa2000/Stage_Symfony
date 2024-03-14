@@ -1,0 +1,158 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpDevisClientNewFromFactures{% endblock %}
+
+{% block body %}
+    <h1>ErpDevisClientNewFromFactures</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_devis_client_new_from_facture.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_devis_client_new_from_facture.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ erp_devis_client_new_from_facture.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ erp_devis_client_new_from_facture.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ erp_devis_client_new_from_facture.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ erp_devis_client_new_from_facture.montel }}</td>
+            </tr>
+            <tr>
+                <th>Monfax</th>
+                <td>{{ erp_devis_client_new_from_facture.monfax }}</td>
+            </tr>
+            <tr>
+                <th>Monregistre</th>
+                <td>{{ erp_devis_client_new_from_facture.monregistre }}</td>
+            </tr>
+            <tr>
+                <th>Monmatricule</th>
+                <td>{{ erp_devis_client_new_from_facture.monmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Clientcode</th>
+                <td>{{ erp_devis_client_new_from_facture.clientcode }}</td>
+            </tr>
+            <tr>
+                <th>Clientraison</th>
+                <td>{{ erp_devis_client_new_from_facture.clientraison }}</td>
+            </tr>
+            <tr>
+                <th>Clientnom</th>
+                <td>{{ erp_devis_client_new_from_facture.clientnom }}</td>
+            </tr>
+            <tr>
+                <th>Clientprenom</th>
+                <td>{{ erp_devis_client_new_from_facture.clientprenom }}</td>
+            </tr>
+            <tr>
+                <th>Clienttel</th>
+                <td>{{ erp_devis_client_new_from_facture.clienttel }}</td>
+            </tr>
+            <tr>
+                <th>Clientfax</th>
+                <td>{{ erp_devis_client_new_from_facture.clientfax }}</td>
+            </tr>
+            <tr>
+                <th>Clientadresse</th>
+                <td>{{ erp_devis_client_new_from_facture.clientadresse }}</td>
+            </tr>
+            <tr>
+                <th>Clientmatricule</th>
+                <td>{{ erp_devis_client_new_from_facture.clientmatricule }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ erp_devis_client_new_from_facture.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ erp_devis_client_new_from_facture.tva }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ erp_devis_client_new_from_facture.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Remises</th>
+                <td>{{ erp_devis_client_new_from_facture.remises }}</td>
+            </tr>
+            <tr>
+                <th>Timbres</th>
+                <td>{{ erp_devis_client_new_from_facture.timbres }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ erp_devis_client_new_from_facture.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurnom</th>
+                <td>{{ erp_devis_client_new_from_facture.chauffeurnom }}</td>
+            </tr>
+            <tr>
+                <th>Chauffeurvehicule</th>
+                <td>{{ erp_devis_client_new_from_facture.chauffeurvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Creationcode</th>
+                <td>{{ erp_devis_client_new_from_facture.creationcode }}</td>
+            </tr>
+            <tr>
+                <th>Creationnom</th>
+                <td>{{ erp_devis_client_new_from_facture.creationnom }}</td>
+            </tr>
+            <tr>
+                <th>Creationprenom</th>
+                <td>{{ erp_devis_client_new_from_facture.creationprenom }}</td>
+            </tr>
+            <tr>
+                <th>Creationdate</th>
+                <td>{{ erp_devis_client_new_from_facture.creationdate }}</td>
+            </tr>
+            <tr>
+                <th>Creationheure</th>
+                <td>{{ erp_devis_client_new_from_facture.creationheure }}</td>
+            </tr>
+            <tr>
+                <th>Modepaimement</th>
+                <td>{{ erp_devis_client_new_from_facture.modepaimement }}</td>
+            </tr>
+            <tr>
+                <th>Numbercompte</th>
+                <td>{{ erp_devis_client_new_from_facture.numbercompte }}</td>
+            </tr>
+            <tr>
+                <th>Montantsaisie</th>
+                <td>{{ erp_devis_client_new_from_facture.montantsaisie }}</td>
+            </tr>
+            <tr>
+                <th>Accomptesaisie</th>
+                <td>{{ erp_devis_client_new_from_facture.accomptesaisie }}</td>
+            </tr>
+            <tr>
+                <th>Etatfacture</th>
+                <td>{{ erp_devis_client_new_from_facture.etatfacture }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_devis_client_new_from_factures_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_devis_client_new_from_factures_edit', {'id': erp_devis_client_new_from_facture.id}) }}">edit</a>
+
+    {{ include('erp_devis_client_new_from_factures/_delete_form.html.twig') }}
+{% endblock %}

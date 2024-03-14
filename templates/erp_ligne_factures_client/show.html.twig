@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpLigneFacturesClient{% endblock %}
+
+{% block body %}
+    <h1>ErpLigneFacturesClient</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_ligne_factures_client.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_ligne_factures_client.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ erp_ligne_factures_client.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ erp_ligne_factures_client.reference }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ erp_ligne_factures_client.produit }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ erp_ligne_factures_client.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prixdeventeht</th>
+                <td>{{ erp_ligne_factures_client.prixdeventeht }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ erp_ligne_factures_client.tva }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalht</th>
+                <td>{{ erp_ligne_factures_client.soustotalht }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalttc</th>
+                <td>{{ erp_ligne_factures_client.soustotalttc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_ligne_factures_client_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_ligne_factures_client_edit', {'id': erp_ligne_factures_client.id}) }}">edit</a>
+
+    {{ include('erp_ligne_factures_client/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpVille{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpVille</h1>
+
+    {{ include('erp_ville/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_ville_index') }}">back to list</a>
+{% endblock %}

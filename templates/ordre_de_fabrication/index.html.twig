@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrdreDeFabrication index{% endblock %}
+
+{% block body %}
+    <h1>OrdreDeFabrication index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codeordre</th>
+                <th>Nom</th>
+                <th>Priorite</th>
+                <th>Client</th>
+                <th>Commandeclient</th>
+                <th>Etat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ordre_de_fabrication in ordre_de_fabrications %}
+            <tr>
+                <td>{{ ordre_de_fabrication.id }}</td>
+                <td>{{ ordre_de_fabrication.code }}</td>
+                <td>{{ ordre_de_fabrication.codeordre }}</td>
+                <td>{{ ordre_de_fabrication.nom }}</td>
+                <td>{{ ordre_de_fabrication.priorite }}</td>
+                <td>{{ ordre_de_fabrication.client }}</td>
+                <td>{{ ordre_de_fabrication.commandeclient }}</td>
+                <td>{{ ordre_de_fabrication.etat }}</td>
+                <td>{{ ordre_de_fabrication.creepar }}</td>
+                <td>{{ ordre_de_fabrication.datecreation ? ordre_de_fabrication.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ ordre_de_fabrication.datemodification ? ordre_de_fabrication.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_ordre_de_fabrication_show', {'id': ordre_de_fabrication.id}) }}">show</a>
+                    <a href="{{ path('app_ordre_de_fabrication_edit', {'id': ordre_de_fabrication.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ordre_de_fabrication_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpCategoriePremiere{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpCategoriePremiere</h1>
+
+    {{ include('erp_categorie_premiere/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_categorie_premiere_index') }}">back to list</a>
+
+    {{ include('erp_categorie_premiere/_delete_form.html.twig') }}
+{% endblock %}

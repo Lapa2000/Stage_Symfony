@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpTypeMatierePremiere index{% endblock %}
+
+{% block body %}
+    <h1>ErpTypeMatierePremiere index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_type_matiere_premiere in erp_type_matiere_premieres %}
+            <tr>
+                <td>{{ erp_type_matiere_premiere.id }}</td>
+                <td>{{ erp_type_matiere_premiere.code }}</td>
+                <td>{{ erp_type_matiere_premiere.nom }}</td>
+                <td>{{ erp_type_matiere_premiere.creepar }}</td>
+                <td>{{ erp_type_matiere_premiere.datecreation ? erp_type_matiere_premiere.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_type_matiere_premiere.datemodification ? erp_type_matiere_premiere.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_type_matiere_premiere_show', {'id': erp_type_matiere_premiere.id}) }}">show</a>
+                    <a href="{{ path('app_erp_type_matiere_premiere_edit', {'id': erp_type_matiere_premiere.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_type_matiere_premiere_new') }}">Create new</a>
+{% endblock %}

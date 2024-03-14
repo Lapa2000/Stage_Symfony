@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpEquipe{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpEquipe</h1>
+
+    {{ include('erp_equipe/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_equipe_index') }}">back to list</a>
+{% endblock %}

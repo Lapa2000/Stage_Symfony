@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpChauffeurs index{% endblock %}
+
+{% block body %}
+    <h1>ErpChauffeurs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Tel2</th>
+                <th>Email</th>
+                <th>Image</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_chauffeur in erp_chauffeurs %}
+            <tr>
+                <td>{{ erp_chauffeur.id }}</td>
+                <td>{{ erp_chauffeur.code }}</td>
+                <td>{{ erp_chauffeur.nom }}</td>
+                <td>{{ erp_chauffeur.prenom }}</td>
+                <td>{{ erp_chauffeur.adresse }}</td>
+                <td>{{ erp_chauffeur.tel }}</td>
+                <td>{{ erp_chauffeur.tel2 }}</td>
+                <td>{{ erp_chauffeur.email }}</td>
+                <td>{{ erp_chauffeur.image }}</td>
+                <td>{{ erp_chauffeur.creepar }}</td>
+                <td>{{ erp_chauffeur.datecreation ? erp_chauffeur.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_chauffeur.datemodification ? erp_chauffeur.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_chauffeurs_show', {'id': erp_chauffeur.id}) }}">show</a>
+                    <a href="{{ path('app_erp_chauffeurs_edit', {'id': erp_chauffeur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_chauffeurs_new') }}">Create new</a>
+{% endblock %}

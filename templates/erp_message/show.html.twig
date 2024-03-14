@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpMessage{% endblock %}
+
+{% block body %}
+    <h1>ErpMessage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_message.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_message.code }}</td>
+            </tr>
+            <tr>
+                <th>Idenvoie</th>
+                <td>{{ erp_message.idenvoie }}</td>
+            </tr>
+            <tr>
+                <th>Idreception</th>
+                <td>{{ erp_message.idreception }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ erp_message.titre }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ erp_message.texte }}</td>
+            </tr>
+            <tr>
+                <th>Fichier</th>
+                <td>{{ erp_message.fichier }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ erp_message.etat }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_message.datecreation ? erp_message.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_message.datemodification ? erp_message.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_message_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_message_edit', {'id': erp_message.id}) }}">edit</a>
+
+    {{ include('erp_message/_delete_form.html.twig') }}
+{% endblock %}

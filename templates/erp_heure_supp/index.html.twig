@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpHeureSupp index{% endblock %}
+
+{% block body %}
+    <h1>ErpHeureSupp index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Codeemployee</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Categorie</th>
+                <th>Etat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_heure_supp in erp_heure_supps %}
+            <tr>
+                <td>{{ erp_heure_supp.id }}</td>
+                <td>{{ erp_heure_supp.code }}</td>
+                <td>{{ erp_heure_supp.titre }}</td>
+                <td>{{ erp_heure_supp.description }}</td>
+                <td>{{ erp_heure_supp.codeemployee }}</td>
+                <td>{{ erp_heure_supp.datedebut }}</td>
+                <td>{{ erp_heure_supp.datefin }}</td>
+                <td>{{ erp_heure_supp.categorie }}</td>
+                <td>{{ erp_heure_supp.etat }}</td>
+                <td>{{ erp_heure_supp.creepar }}</td>
+                <td>{{ erp_heure_supp.datecreation }}</td>
+                <td>{{ erp_heure_supp.datemodification }}</td>
+                <td>
+                    <a href="{{ path('app_erp_heure_supp_show', {'id': erp_heure_supp.id}) }}">show</a>
+                    <a href="{{ path('app_erp_heure_supp_edit', {'id': erp_heure_supp.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_heure_supp_new') }}">Create new</a>
+{% endblock %}

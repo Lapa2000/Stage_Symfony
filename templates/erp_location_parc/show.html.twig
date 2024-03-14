@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpLocationParc{% endblock %}
+
+{% block body %}
+    <h1>ErpLocationParc</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_location_parc.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_location_parc.code }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ erp_location_parc.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ erp_location_parc.description }}</td>
+            </tr>
+            <tr>
+                <th>Typecontrat</th>
+                <td>{{ erp_location_parc.typecontrat }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ erp_location_parc.datedebut ? erp_location_parc.datedebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ erp_location_parc.datefin ? erp_location_parc.datefin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ erp_location_parc.montant }}</td>
+            </tr>
+            <tr>
+                <th>Fichierjoint</th>
+                <td>{{ erp_location_parc.fichierjoint }}</td>
+            </tr>
+            <tr>
+                <th>Idvehicule</th>
+                <td>{{ erp_location_parc.idvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_location_parc.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_location_parc.datecreation ? erp_location_parc.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_location_parc.datemodification ? erp_location_parc.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_location_parc_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_location_parc_edit', {'id': erp_location_parc.id}) }}">edit</a>
+
+    {{ include('erp_location_parc/_delete_form.html.twig') }}
+{% endblock %}

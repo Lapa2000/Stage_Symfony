@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpContactCategorie{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpContactCategorie</h1>
+
+    {{ include('erp_contact_categorie/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_contact_categorie_index') }}">back to list</a>
+
+    {{ include('erp_contact_categorie/_delete_form.html.twig') }}
+{% endblock %}

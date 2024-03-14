@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrdreDeProduction{% endblock %}
+
+{% block body %}
+    <h1>OrdreDeProduction</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ordre_de_production.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ ordre_de_production.code }}</td>
+            </tr>
+            <tr>
+                <th>Codeordre</th>
+                <td>{{ ordre_de_production.codeordre }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ ordre_de_production.nom }}</td>
+            </tr>
+            <tr>
+                <th>Priorite</th>
+                <td>{{ ordre_de_production.priorite }}</td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ ordre_de_production.client }}</td>
+            </tr>
+            <tr>
+                <th>Commandeclient</th>
+                <td>{{ ordre_de_production.commandeclient }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ ordre_de_production.etat }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ ordre_de_production.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ ordre_de_production.datecreation ? ordre_de_production.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ ordre_de_production.datemodification ? ordre_de_production.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ordre_de_production_index') }}">back to list</a>
+
+    <a href="{{ path('app_ordre_de_production_edit', {'id': ordre_de_production.id}) }}">edit</a>
+
+    {{ include('ordre_de_production/_delete_form.html.twig') }}
+{% endblock %}

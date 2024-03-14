@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AvoirClientsHistory{% endblock %}
+
+{% block body %}
+    <h1>AvoirClientsHistory</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ avoir_clients_history.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ avoir_clients_history.code }}</td>
+            </tr>
+            <tr>
+                <th>Modepaimement</th>
+                <td>{{ avoir_clients_history.modepaimement }}</td>
+            </tr>
+            <tr>
+                <th>Numerocompte</th>
+                <td>{{ avoir_clients_history.numerocompte }}</td>
+            </tr>
+            <tr>
+                <th>Codeclient</th>
+                <td>{{ avoir_clients_history.codeclient }}</td>
+            </tr>
+            <tr>
+                <th>Codefacture</th>
+                <td>{{ avoir_clients_history.codefacture }}</td>
+            </tr>
+            <tr>
+                <th>Montanttotalfacture</th>
+                <td>{{ avoir_clients_history.montanttotalfacture }}</td>
+            </tr>
+            <tr>
+                <th>Montantsaisie</th>
+                <td>{{ avoir_clients_history.montantsaisie }}</td>
+            </tr>
+            <tr>
+                <th>Ancienmontant</th>
+                <td>{{ avoir_clients_history.ancienmontant }}</td>
+            </tr>
+            <tr>
+                <th>Payetawa</th>
+                <td>{{ avoir_clients_history.payetawa }}</td>
+            </tr>
+            <tr>
+                <th>Restantmazal</th>
+                <td>{{ avoir_clients_history.restantmazal }}</td>
+            </tr>
+            <tr>
+                <th>Datemontant</th>
+                <td>{{ avoir_clients_history.datemontant }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ avoir_clients_history.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ avoir_clients_history.datecreation ? avoir_clients_history.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ avoir_clients_history.datemodification ? avoir_clients_history.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_clients_history_index') }}">back to list</a>
+
+    <a href="{{ path('app_clients_history_edit', {'id': avoir_clients_history.id}) }}">edit</a>
+
+    {{ include('clients_history/_delete_form.html.twig') }}
+{% endblock %}

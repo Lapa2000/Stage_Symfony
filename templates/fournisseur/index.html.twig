@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AgentFournisseur index{% endblock %}
+
+{% block body %}
+    <h1>AgentFournisseur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Raisonsocial</th>
+                <th>Categorie</th>
+                <th>Adresseadministratif</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Tel2</th>
+                <th>Fax</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Image</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agent_fournisseur in agent_fournisseurs %}
+            <tr>
+                <td>{{ agent_fournisseur.id }}</td>
+                <td>{{ agent_fournisseur.code }}</td>
+                <td>{{ agent_fournisseur.raisonsocial }}</td>
+                <td>{{ agent_fournisseur.categorie }}</td>
+                <td>{{ agent_fournisseur.adresseadministratif }}</td>
+                <td>{{ agent_fournisseur.nom }}</td>
+                <td>{{ agent_fournisseur.prenom }}</td>
+                <td>{{ agent_fournisseur.adresse }}</td>
+                <td>{{ agent_fournisseur.tel }}</td>
+                <td>{{ agent_fournisseur.tel2 }}</td>
+                <td>{{ agent_fournisseur.fax }}</td>
+                <td>{{ agent_fournisseur.email }}</td>
+                <td>{{ agent_fournisseur.website }}</td>
+                <td>{{ agent_fournisseur.image }}</td>
+                <td>{{ agent_fournisseur.creepar }}</td>
+                <td>{{ agent_fournisseur.datecreation ? agent_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ agent_fournisseur.datemodification ? agent_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fournisseur_show', {'id': agent_fournisseur.id}) }}">show</a>
+                    <a href="{{ path('app_fournisseur_edit', {'id': agent_fournisseur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fournisseur_new') }}">Create new</a>
+{% endblock %}

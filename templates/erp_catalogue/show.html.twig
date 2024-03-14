@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpCatalogue{% endblock %}
+
+{% block body %}
+    <h1>ErpCatalogue</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_catalogue.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_catalogue.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ erp_catalogue.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ erp_catalogue.description }}</td>
+            </tr>
+            <tr>
+                <th>Fichier</th>
+                <td>{{ erp_catalogue.fichier }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_catalogue.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_catalogue.datecreation ? erp_catalogue.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_catalogue.datemodification ? erp_catalogue.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_catalogue_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_catalogue_edit', {'id': erp_catalogue.id}) }}">edit</a>
+
+    {{ include('erp_catalogue/_delete_form.html.twig') }}
+{% endblock %}

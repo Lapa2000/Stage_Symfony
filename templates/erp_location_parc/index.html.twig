@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpLocationParc index{% endblock %}
+
+{% block body %}
+    <h1>ErpLocationParc index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Typecontrat</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Montant</th>
+                <th>Fichierjoint</th>
+                <th>Idvehicule</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_location_parc in erp_location_parcs %}
+            <tr>
+                <td>{{ erp_location_parc.id }}</td>
+                <td>{{ erp_location_parc.code }}</td>
+                <td>{{ erp_location_parc.titre }}</td>
+                <td>{{ erp_location_parc.description }}</td>
+                <td>{{ erp_location_parc.typecontrat }}</td>
+                <td>{{ erp_location_parc.datedebut ? erp_location_parc.datedebut|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_location_parc.datefin ? erp_location_parc.datefin|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_location_parc.montant }}</td>
+                <td>{{ erp_location_parc.fichierjoint }}</td>
+                <td>{{ erp_location_parc.idvehicule }}</td>
+                <td>{{ erp_location_parc.creepar }}</td>
+                <td>{{ erp_location_parc.datecreation ? erp_location_parc.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_location_parc.datemodification ? erp_location_parc.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_location_parc_show', {'id': erp_location_parc.id}) }}">show</a>
+                    <a href="{{ path('app_erp_location_parc_edit', {'id': erp_location_parc.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_location_parc_new') }}">Create new</a>
+{% endblock %}

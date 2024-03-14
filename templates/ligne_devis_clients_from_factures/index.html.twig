@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneDevisClientsFromFactures index{% endblock %}
+
+{% block body %}
+    <h1>LigneDevisClientsFromFactures index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Reference</th>
+                <th>Produit</th>
+                <th>Quantite</th>
+                <th>Prixdeventeht</th>
+                <th>Remise</th>
+                <th>Tva</th>
+                <th>Soustotalht</th>
+                <th>Soustotalttc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligne_devis_clients_from_facture in ligne_devis_clients_from_factures %}
+            <tr>
+                <td>{{ ligne_devis_clients_from_facture.id }}</td>
+                <td>{{ ligne_devis_clients_from_facture.code }}</td>
+                <td>{{ ligne_devis_clients_from_facture.codedevis }}</td>
+                <td>{{ ligne_devis_clients_from_facture.reference }}</td>
+                <td>{{ ligne_devis_clients_from_facture.produit }}</td>
+                <td>{{ ligne_devis_clients_from_facture.quantite }}</td>
+                <td>{{ ligne_devis_clients_from_facture.prixdeventeht }}</td>
+                <td>{{ ligne_devis_clients_from_facture.remise }}</td>
+                <td>{{ ligne_devis_clients_from_facture.tva }}</td>
+                <td>{{ ligne_devis_clients_from_facture.soustotalht }}</td>
+                <td>{{ ligne_devis_clients_from_facture.soustotalttc }}</td>
+                <td>
+                    <a href="{{ path('app_ligne_devis_clients_from_factures_show', {'id': ligne_devis_clients_from_facture.id}) }}">show</a>
+                    <a href="{{ path('app_ligne_devis_clients_from_factures_edit', {'id': ligne_devis_clients_from_facture.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ligne_devis_clients_from_factures_new') }}">Create new</a>
+{% endblock %}

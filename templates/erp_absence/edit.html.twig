@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpAbsence{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpAbsence</h1>
+
+    {{ include('erp_absence/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_absence_index') }}">back to list</a>
+
+    {{ include('erp_absence/_delete_form.html.twig') }}
+{% endblock %}

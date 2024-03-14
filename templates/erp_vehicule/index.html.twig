@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpVehicule index{% endblock %}
+
+{% block body %}
+    <h1>ErpVehicule index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Matricule</th>
+                <th>Modele</th>
+                <th>Dateachat</th>
+                <th>Datemiseensirculation</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_vehicule in erp_vehicules %}
+            <tr>
+                <td>{{ erp_vehicule.id }}</td>
+                <td>{{ erp_vehicule.code }}</td>
+                <td>{{ erp_vehicule.image }}</td>
+                <td>{{ erp_vehicule.nom }}</td>
+                <td>{{ erp_vehicule.matricule }}</td>
+                <td>{{ erp_vehicule.modele }}</td>
+                <td>{{ erp_vehicule.dateachat ? erp_vehicule.dateachat|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_vehicule.datemiseensirculation ? erp_vehicule.datemiseensirculation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_vehicule.creepar }}</td>
+                <td>{{ erp_vehicule.datecreation ? erp_vehicule.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_vehicule.datemodification ? erp_vehicule.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_vehicule_show', {'id': erp_vehicule.id}) }}">show</a>
+                    <a href="{{ path('app_erp_vehicule_edit', {'id': erp_vehicule.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_vehicule_new') }}">Create new</a>
+{% endblock %}

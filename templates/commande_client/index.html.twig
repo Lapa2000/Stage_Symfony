@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CommandeClient index{% endblock %}
+
+{% block body %}
+    <h1>CommandeClient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codedevis</th>
+                <th>Masociete</th>
+                <th>Monadresse</th>
+                <th>Montel</th>
+                <th>Monfax</th>
+                <th>Monregistre</th>
+                <th>Monmatricule</th>
+                <th>Clientcode</th>
+                <th>Clientraison</th>
+                <th>Clientnom</th>
+                <th>Clientprenom</th>
+                <th>Clientel</th>
+                <th>Clientfax</th>
+                <th>Clientadresse</th>
+                <th>Clientmatricule</th>
+                <th>Totalht</th>
+                <th>Tva</th>
+                <th>Totaltva</th>
+                <th>Remises</th>
+                <th>Timbres</th>
+                <th>Totalttc</th>
+                <th>Chauffeurnom</th>
+                <th>Chauffeurvehicule</th>
+                <th>Creationcode</th>
+                <th>Creationnom</th>
+                <th>Creationprenom</th>
+                <th>Creationdate</th>
+                <th>Creationheure</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande_client in commande_clients %}
+            <tr>
+                <td>{{ commande_client.id }}</td>
+                <td>{{ commande_client.code }}</td>
+                <td>{{ commande_client.codedevis }}</td>
+                <td>{{ commande_client.masociete }}</td>
+                <td>{{ commande_client.monadresse }}</td>
+                <td>{{ commande_client.montel }}</td>
+                <td>{{ commande_client.monfax }}</td>
+                <td>{{ commande_client.monregistre }}</td>
+                <td>{{ commande_client.monmatricule }}</td>
+                <td>{{ commande_client.clientcode }}</td>
+                <td>{{ commande_client.clientraison }}</td>
+                <td>{{ commande_client.clientnom }}</td>
+                <td>{{ commande_client.clientprenom }}</td>
+                <td>{{ commande_client.clientel }}</td>
+                <td>{{ commande_client.clientfax }}</td>
+                <td>{{ commande_client.clientadresse }}</td>
+                <td>{{ commande_client.clientmatricule }}</td>
+                <td>{{ commande_client.totalht }}</td>
+                <td>{{ commande_client.tva }}</td>
+                <td>{{ commande_client.totaltva }}</td>
+                <td>{{ commande_client.remises }}</td>
+                <td>{{ commande_client.timbres }}</td>
+                <td>{{ commande_client.totalttc }}</td>
+                <td>{{ commande_client.chauffeurnom }}</td>
+                <td>{{ commande_client.chauffeurvehicule }}</td>
+                <td>{{ commande_client.creationcode }}</td>
+                <td>{{ commande_client.creationnom }}</td>
+                <td>{{ commande_client.creationprenom }}</td>
+                <td>{{ commande_client.creationdate }}</td>
+                <td>{{ commande_client.creationheure }}</td>
+                <td>
+                    <a href="{{ path('app_commande_client_show', {'id': commande_client.id}) }}">show</a>
+                    <a href="{{ path('app_commande_client_edit', {'id': commande_client.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="31">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commande_client_new') }}">Create new</a>
+{% endblock %}

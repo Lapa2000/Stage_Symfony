@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FacturesClients{% endblock %}
+
+{% block body %}
+    <h1>FacturesClients</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ factures_client.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ factures_client.code }}</td>
+            </tr>
+            <tr>
+                <th>Codefacture</th>
+                <td>{{ factures_client.codefacture }}</td>
+            </tr>
+            <tr>
+                <th>Monlogo</th>
+                <td>{{ factures_client.monlogo }}</td>
+            </tr>
+            <tr>
+                <th>Masociete</th>
+                <td>{{ factures_client.masociete }}</td>
+            </tr>
+            <tr>
+                <th>Monadresse</th>
+                <td>{{ factures_client.monadresse }}</td>
+            </tr>
+            <tr>
+                <th>Montel</th>
+                <td>{{ factures_client.montel }}</td>
+            </tr>
+            <tr>
+                <th>Nomclient</th>
+                <td>{{ factures_client.nomclient }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ factures_client.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Datedevis</th>
+                <td>{{ factures_client.datedevis }}</td>
+            </tr>
+            <tr>
+                <th>Totalht</th>
+                <td>{{ factures_client.totalht }}</td>
+            </tr>
+            <tr>
+                <th>Totaltva</th>
+                <td>{{ factures_client.totaltva }}</td>
+            </tr>
+            <tr>
+                <th>Totalttc</th>
+                <td>{{ factures_client.totalttc }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ factures_client.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ factures_client.datecreation ? factures_client.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ factures_client.datemodification ? factures_client.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_factures_clients_index') }}">back to list</a>
+
+    <a href="{{ path('app_factures_clients_edit', {'id': factures_client.id}) }}">edit</a>
+
+    {{ include('factures_clients/_delete_form.html.twig') }}
+{% endblock %}

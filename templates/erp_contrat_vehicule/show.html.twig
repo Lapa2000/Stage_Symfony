@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpContratVehicule{% endblock %}
+
+{% block body %}
+    <h1>ErpContratVehicule</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_contrat_vehicule.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_contrat_vehicule.code }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ erp_contrat_vehicule.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ erp_contrat_vehicule.description }}</td>
+            </tr>
+            <tr>
+                <th>Typecontrat</th>
+                <td>{{ erp_contrat_vehicule.typecontrat }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ erp_contrat_vehicule.datedebut ? erp_contrat_vehicule.datedebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ erp_contrat_vehicule.datefin ? erp_contrat_vehicule.datefin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ erp_contrat_vehicule.montant }}</td>
+            </tr>
+            <tr>
+                <th>Fichierjoint</th>
+                <td>{{ erp_contrat_vehicule.fichierjoint }}</td>
+            </tr>
+            <tr>
+                <th>Idvehicule</th>
+                <td>{{ erp_contrat_vehicule.idvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_contrat_vehicule.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_contrat_vehicule.datecreation ? erp_contrat_vehicule.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_contrat_vehicule.datemodification ? erp_contrat_vehicule.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_contrat_vehicule_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_contrat_vehicule_edit', {'id': erp_contrat_vehicule.id}) }}">edit</a>
+
+    {{ include('erp_contrat_vehicule/_delete_form.html.twig') }}
+{% endblock %}

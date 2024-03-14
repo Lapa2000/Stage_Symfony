@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContratFournisseur index{% endblock %}
+
+{% block body %}
+    <h1>ContratFournisseur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Fichier</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contrat_fournisseur in contrat_fournisseurs %}
+            <tr>
+                <td>{{ contrat_fournisseur.id }}</td>
+                <td>{{ contrat_fournisseur.code }}</td>
+                <td>{{ contrat_fournisseur.nom }}</td>
+                <td>{{ contrat_fournisseur.description }}</td>
+                <td>{{ contrat_fournisseur.fichier }}</td>
+                <td>{{ contrat_fournisseur.creepar }}</td>
+                <td>{{ contrat_fournisseur.datecreation ? contrat_fournisseur.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ contrat_fournisseur.datemodification ? contrat_fournisseur.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_contrat_fournisseur_show', {'id': contrat_fournisseur.id}) }}">show</a>
+                    <a href="{{ path('app_contrat_fournisseur_edit', {'id': contrat_fournisseur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contrat_fournisseur_new') }}">Create new</a>
+{% endblock %}

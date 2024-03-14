@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpContratVehicule{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpContratVehicule</h1>
+
+    {{ include('erp_contrat_vehicule/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_contrat_vehicule_index') }}">back to list</a>
+{% endblock %}

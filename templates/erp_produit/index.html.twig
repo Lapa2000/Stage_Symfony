@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpProduit index{% endblock %}
+
+{% block body %}
+    <h1>ErpProduit index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Codeproduit</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Categorie</th>
+                <th>Methodeapprovisionement</th>
+                <th>Puvht</th>
+                <th>Tva</th>
+                <th>Puvttc</th>
+                <th>Remise</th>
+                <th>Unitestock</th>
+                <th>Fournisseur</th>
+                <th>Dateachat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_produit in erp_produits %}
+            <tr>
+                <td>{{ erp_produit.id }}</td>
+                <td>{{ erp_produit.code }}</td>
+                <td>{{ erp_produit.codeproduit }}</td>
+                <td>{{ erp_produit.image }}</td>
+                <td>{{ erp_produit.nom }}</td>
+                <td>{{ erp_produit.description }}</td>
+                <td>{{ erp_produit.type }}</td>
+                <td>{{ erp_produit.categorie }}</td>
+                <td>{{ erp_produit.methodeapprovisionement }}</td>
+                <td>{{ erp_produit.puvht }}</td>
+                <td>{{ erp_produit.tva }}</td>
+                <td>{{ erp_produit.puvttc }}</td>
+                <td>{{ erp_produit.remise }}</td>
+                <td>{{ erp_produit.unitestock }}</td>
+                <td>{{ erp_produit.fournisseur }}</td>
+                <td>{{ erp_produit.dateachat ? erp_produit.dateachat|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_produit.creepar }}</td>
+                <td>{{ erp_produit.datecreation ? erp_produit.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_produit.datemodification }}</td>
+                <td>
+                    <a href="{{ path('app_erp_produit_show', {'id': erp_produit.id}) }}">show</a>
+                    <a href="{{ path('app_erp_produit_edit', {'id': erp_produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="20">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_produit_new') }}">Create new</a>
+{% endblock %}

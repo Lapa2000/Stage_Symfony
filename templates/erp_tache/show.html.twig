@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpTache{% endblock %}
+
+{% block body %}
+    <h1>ErpTache</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ erp_tache.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ erp_tache.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ erp_tache.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ erp_tache.description }}</td>
+            </tr>
+            <tr>
+                <th>Idprojet</th>
+                <td>{{ erp_tache.idprojet }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ erp_tache.datedebut ? erp_tache.datedebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ erp_tache.datefin ? erp_tache.datefin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fichier</th>
+                <td>{{ erp_tache.fichier }}</td>
+            </tr>
+            <tr>
+                <th>Creepar</th>
+                <td>{{ erp_tache.creepar }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ erp_tache.datecreation ? erp_tache.datecreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ erp_tache.datemodification ? erp_tache.datemodification|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_tache_index') }}">back to list</a>
+
+    <a href="{{ path('app_erp_tache_edit', {'id': erp_tache.id}) }}">edit</a>
+
+    {{ include('erp_tache/_delete_form.html.twig') }}
+{% endblock %}

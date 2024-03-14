@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpParametres index{% endblock %}
+
+{% block body %}
+    <h1>ErpParametres index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Logosociete</th>
+                <th>Nomsociete</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
+                <th>Tel</th>
+                <th>Tel2</th>
+                <th>Fax</th>
+                <th>Registrecommerce</th>
+                <th>Matriculefiscale</th>
+                <th>Rib</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_parametre in erp_parametres %}
+            <tr>
+                <td>{{ erp_parametre.id }}</td>
+                <td>{{ erp_parametre.code }}</td>
+                <td>{{ erp_parametre.logosociete }}</td>
+                <td>{{ erp_parametre.nomsociete }}</td>
+                <td>{{ erp_parametre.adresse }}</td>
+                <td>{{ erp_parametre.codepostal }}</td>
+                <td>{{ erp_parametre.ville }}</td>
+                <td>{{ erp_parametre.tel }}</td>
+                <td>{{ erp_parametre.tel2 }}</td>
+                <td>{{ erp_parametre.fax }}</td>
+                <td>{{ erp_parametre.registrecommerce }}</td>
+                <td>{{ erp_parametre.matriculefiscale }}</td>
+                <td>{{ erp_parametre.rib }}</td>
+                <td>{{ erp_parametre.creepar }}</td>
+                <td>{{ erp_parametre.datecreation ? erp_parametre.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_parametre.datemodification ? erp_parametre.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_parametres_show', {'id': erp_parametre.id}) }}">show</a>
+                    <a href="{{ path('app_erp_parametres_edit', {'id': erp_parametre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_parametres_new') }}">Create new</a>
+{% endblock %}

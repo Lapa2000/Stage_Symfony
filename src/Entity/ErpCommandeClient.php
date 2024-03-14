@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ErpCommandeClientRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
 
 #[ORM\Entity(repositoryClass: ErpCommandeClientRepository::class)]
 class ErpCommandeClient
@@ -57,10 +57,12 @@ class ErpCommandeClient
     private ?string $creepar = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?string $datecreation = null;
+    private ?\DateTimeInterface $datecreation = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?string $datemodification = null;
+    private ?\DateTimeInterface $datemodification = null;
+
+    // getters and setters
 
     public function getId(): ?int
     {
@@ -235,27 +237,29 @@ class ErpCommandeClient
         return $this;
     }
 
-    public function getDatecreation(): ?string
+
+    public function getDatecreation(): ?\DateTimeInterface
     {
         return $this->datecreation;
     }
 
-    public function setDatecreation(string $datecreation): static
+    public function setDatecreation(\DateTimeInterface $datecreation): self
     {
         $this->datecreation = $datecreation;
 
         return $this;
     }
 
-    public function getDatemodification(): ?string
+    public function getDatemodification(): ?\DateTimeInterface
     {
         return $this->datemodification;
     }
 
-    public function setDatemodification(string $datemodification): static
+    public function setDatemodification(\DateTimeInterface $datemodification): self
     {
         $this->datemodification = $datemodification;
 
         return $this;
     }
 }
+

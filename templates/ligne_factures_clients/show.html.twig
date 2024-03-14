@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneFacturesClients{% endblock %}
+
+{% block body %}
+    <h1>LigneFacturesClients</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ligne_factures_client.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ ligne_factures_client.code }}</td>
+            </tr>
+            <tr>
+                <th>Codedevis</th>
+                <td>{{ ligne_factures_client.codedevis }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ ligne_factures_client.reference }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ ligne_factures_client.produit }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ ligne_factures_client.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prixdeventeht</th>
+                <td>{{ ligne_factures_client.prixdeventeht }}</td>
+            </tr>
+            <tr>
+                <th>Remise</th>
+                <td>{{ ligne_factures_client.remise }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ ligne_factures_client.tva }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalht</th>
+                <td>{{ ligne_factures_client.soustotalht }}</td>
+            </tr>
+            <tr>
+                <th>Soustotalttc</th>
+                <td>{{ ligne_factures_client.soustotalttc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ligne_factures_clients_index') }}">back to list</a>
+
+    <a href="{{ path('app_ligne_factures_clients_edit', {'id': ligne_factures_client.id}) }}">edit</a>
+
+    {{ include('ligne_factures_clients/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ErpBonDeReceptionFournisseur{% endblock %}
+
+{% block body %}
+    <h1>Edit ErpBonDeReceptionFournisseur</h1>
+
+    {{ include('erp_bon_de_reception_fournisseur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_erp_bon_de_reception_fournisseur_index') }}">back to list</a>
+
+    {{ include('erp_bon_de_reception_fournisseur/_delete_form.html.twig') }}
+{% endblock %}

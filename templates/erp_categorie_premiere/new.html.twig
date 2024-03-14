@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpCategoriePremiere{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpCategoriePremiere</h1>
+
+    {{ include('erp_categorie_premiere/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_categorie_premiere_index') }}">back to list</a>
+{% endblock %}

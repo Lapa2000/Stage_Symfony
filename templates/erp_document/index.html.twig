@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpDocument index{% endblock %}
+
+{% block body %}
+    <h1>ErpDocument index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Fichier</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_document in erp_documents %}
+            <tr>
+                <td>{{ erp_document.id }}</td>
+                <td>{{ erp_document.code }}</td>
+                <td>{{ erp_document.nom }}</td>
+                <td>{{ erp_document.description }}</td>
+                <td>{{ erp_document.fichier }}</td>
+                <td>{{ erp_document.creepar }}</td>
+                <td>{{ erp_document.datecreation ? erp_document.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_document.datemodification ? erp_document.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_document_show', {'id': erp_document.id}) }}">show</a>
+                    <a href="{{ path('app_erp_document_edit', {'id': erp_document.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_document_new') }}">Create new</a>
+{% endblock %}

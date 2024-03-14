@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpNoteDeFrais index{% endblock %}
+
+{% block body %}
+    <h1>ErpNoteDeFrais index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Codeemployee</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Categorie</th>
+                <th>Etat</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_note_de_frai in erp_note_de_frais %}
+            <tr>
+                <td>{{ erp_note_de_frai.id }}</td>
+                <td>{{ erp_note_de_frai.code }}</td>
+                <td>{{ erp_note_de_frai.titre }}</td>
+                <td>{{ erp_note_de_frai.description }}</td>
+                <td>{{ erp_note_de_frai.codeemployee }}</td>
+                <td>{{ erp_note_de_frai.datedebut }}</td>
+                <td>{{ erp_note_de_frai.datefin }}</td>
+                <td>{{ erp_note_de_frai.categorie }}</td>
+                <td>{{ erp_note_de_frai.etat }}</td>
+                <td>{{ erp_note_de_frai.creepar }}</td>
+                <td>{{ erp_note_de_frai.datecreation ? erp_note_de_frai.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_note_de_frai.datemodification ? erp_note_de_frai.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_note_de_frais_show', {'id': erp_note_de_frai.id}) }}">show</a>
+                    <a href="{{ path('app_erp_note_de_frais_edit', {'id': erp_note_de_frai.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_note_de_frais_new') }}">Create new</a>
+{% endblock %}

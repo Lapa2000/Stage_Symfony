@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ErpAbsence{% endblock %}
+
+{% block body %}
+    <h1>Create new ErpAbsence</h1>
+
+    {{ include('erp_absence/_form.html.twig') }}
+
+    <a href="{{ path('app_erp_absence_index') }}">back to list</a>
+{% endblock %}

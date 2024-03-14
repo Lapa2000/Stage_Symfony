@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ErpPistes index{% endblock %}
+
+{% block body %}
+    <h1>ErpPistes index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Societe</th>
+                <th>Secteur</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Pays</th>
+                <th>Image</th>
+                <th>Creepar</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erp_piste in erp_pistes %}
+            <tr>
+                <td>{{ erp_piste.id }}</td>
+                <td>{{ erp_piste.code }}</td>
+                <td>{{ erp_piste.nom }}</td>
+                <td>{{ erp_piste.prenom }}</td>
+                <td>{{ erp_piste.societe }}</td>
+                <td>{{ erp_piste.secteur }}</td>
+                <td>{{ erp_piste.mobile }}</td>
+                <td>{{ erp_piste.email }}</td>
+                <td>{{ erp_piste.website }}</td>
+                <td>{{ erp_piste.adresse }}</td>
+                <td>{{ erp_piste.codepostal }}</td>
+                <td>{{ erp_piste.pays }}</td>
+                <td>{{ erp_piste.image }}</td>
+                <td>{{ erp_piste.creepar }}</td>
+                <td>{{ erp_piste.datecreation ? erp_piste.datecreation|date('Y-m-d') : '' }}</td>
+                <td>{{ erp_piste.datemodification ? erp_piste.datemodification|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_erp_pistes_show', {'id': erp_piste.id}) }}">show</a>
+                    <a href="{{ path('app_erp_pistes_edit', {'id': erp_piste.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_erp_pistes_new') }}">Create new</a>
+{% endblock %}
